@@ -45,6 +45,9 @@
                     <button class="filter-btn" onclick="filterByCategory('Storage', this)">Storage</button>
                     <button class="filter-btn" onclick="filterByCategory('Motherboard', this)">Motherboard</button>
                     <button class="filter-btn" onclick="filterByCategory('Cooling', this)">Cooling</button>
+                        <button class="filter-btn" onclick="filterByCategory('SSD', this)">SSD</button>
+                    <button class="filter-btn" onclick="filterByCategory('HDD', this)">HDD</button>
+                    <button class="filter-btn" onclick="filterByCategory('PSU', this)">PSU</button>
                 </div>
                 <!-- <div class="filter-group" style="margin-left: auto;">
                     <label>Sort by:</label>
@@ -201,28 +204,125 @@
             // 🖥️ Motherboard
             { 
                 id: 7, 
-                name: "ASUS ROG Strix X670E", 
+                name: "ASUS ROG Strix Z790-E Gaming WiFi", 
                 category: "Motherboard", 
-                price: 499.99,
+                price: 29999.00,  // approx price in PHP
                 oldPrice: null,
-                image: "https://m.media-amazon.com/images/I/81vLkqBfS-L._AC_SL1500_.jpg",
-                specs: "AM5, PCIe 5.0, WiFi 6E",
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8w67LBHWZ8CgaV-sfIn5q3Zq3LIWvSfkXSA&s",
+                specs: "LGA1700, PCIe 5.0, WiFi 6E",
                 rating: 4.8,
-                reviews: 145,
+                reviews: 245,
                 badge: "New"
             },
             { 
                 id: 8, 
-                name: "MSI MAG Z790", 
+                name: "MSI MAG B550 Tomahawk", 
                 category: "Motherboard", 
-                price: 379.99,
+                price: 14999.00,
                 oldPrice: null,
-                image: "https://m.media-amazon.com/images/I/81MgPZZ-D-L._AC_SL1500_.jpg",
-                specs: "LGA1700, DDR5, PCIe 5.0",
-                rating: 4.6,
-                reviews: 223,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/products/1024_56_800x.jpg?v=1676878243",
+                specs: "AM4, DDR4, Dual M.2, 2.5G LAN",
+                rating: 4.7,
+                reviews: 189,
                 badge: null
             },
+            { 
+                id: 9, 
+                name: "Gigabyte B660M DS3H AX DDR4", 
+                category: "Motherboard", 
+                price: 13999.00,
+                oldPrice: null,
+                image: "https://static.gigabyte.com/StaticFile/Image/Global/6815680d01bd1a0f00e548251bd5743b/Product/30364/png",
+                specs: "LGA1700, DDR4, WiFi 6",
+                rating: 4.6,
+                reviews: 122,
+                badge: null
+            },
+            { 
+                id: 10, 
+                name: "ASRock B550M Steel Legend", 
+                category: "Motherboard", 
+                price: 12999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/vsdxx.jpg?v=1708239864",
+                specs: "AM4, DDR4, PCIe 4.0, RGB",
+                rating: 4.7,
+                reviews: 132,
+                badge: "Hot"
+            },
+            { 
+                id: 11, 
+                name: "ASUS PRIME A520M-K", 
+                category: "Motherboard", 
+                price: 8999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/1_d5ae6583-25c3-401d-becd-a5e1b9a3b710_800x.jpg?v=1688258285",
+                specs: "AM4, DDR4, Micro ATX",
+                rating: 4.5,
+                reviews: 98,
+                badge: null
+            },
+            { 
+                id: 12, 
+                name: "Gigabyte X670 AORUS Elite AX", 
+                category: "Motherboard", 
+                price: 21999.00,
+                oldPrice: null,
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyxxM_FttQQMLXz0UV01BJtx7Z9fxLRLOO5Q&s",
+                specs: "AM5, DDR5, WiFi 6E",
+                rating: 4.9,
+                reviews: 211,
+                badge: "Best Seller"
+            },
+            { 
+                id: 13, 
+                name: "MSI PRO Z790-P WiFi", 
+                category: "Motherboard", 
+                price: 17999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/456dsg45ds.jpg?v=1760256334",
+                specs: "LGA1700, DDR5, PCIe 5.0",
+                rating: 4.7,
+                reviews: 156,
+                badge: null
+            },
+            { 
+                id: 14, 
+                name: "ASRock B450M Pro4", 
+                category: "Motherboard", 
+                price: 10999.00,
+                oldPrice: null,
+                image: "https://m.media-amazon.com/images/I/717fM36M3sL._AC_SL1200_.jpg",
+                specs: "AM4, DDR4, Micro ATX",
+                rating: 4.4,
+                reviews: 172,
+                badge: null
+            },
+            { 
+                id: 15, 
+                name: "ASUS TUF Gaming X670E-PLUS WiFi", 
+                category: "Motherboard", 
+                price: 24999.00,
+                oldPrice: null,
+                image: "https://www.itech.ph/wp-content/uploads/2023/11/ASUS-TUF-Gaming-X670E-PLUS-WiFi-6E-Socket-AM5-LGA-1718-Ryzen-7000-ATX-Gaming-Motherboard-3-jpg.webp",
+                specs: "AM5, PCIe 5.0, WiFi 6E",
+                rating: 4.8,
+                reviews: 188,
+                badge: "New"
+            },
+            { 
+                id: 16, 
+                name: "Gigabyte Z690 AORUS Ultra", 
+                category: "Motherboard", 
+                price: 23999.00,
+                oldPrice: null,
+                image: "https://cdn.mos.cms.futurecdn.net/uesoSwMbyY9tVBqgxWxuh3.jpg",
+                specs: "LGA1700, DDR5, WiFi 6E, PCIe 5.0",
+                rating: 4.9,
+                reviews: 203,
+                badge: "Premium"
+            },
+
 
             // ❄️ Cooling
             { 
@@ -250,32 +350,86 @@
                 badge: "Sale"
             },
 
-            // 💿 Storage
+            // 💿 SSD
             { 
-                id: 11, 
-                name: "Samsung 990 PRO NVMe SSD 4TB", 
-                category: "Storage", 
-                price: 179.99,
+                id: 17, 
+                name: "Samsung 990 PRO 2TB", 
+                category: "SSD", 
+                price: 12999.00,
                 oldPrice: null,
                 image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/f4s56gsa4g_500x.jpg?v=1760520700",
-                specs: "NVMe Gen 4, 7450 MB/s Read",
+                specs: "NVMe Gen4, 7450 MB/s",
                 rating: 4.9,
                 reviews: 534,
                 badge: "Hot"
             },
             { 
-                id: 12, 
-                name: "Western Digital 1TB Harddisk Drive Blue", 
-                category: "Storage", 
-                price: 69.99,
+                id: 18, 
+                name: "Crucial P5 Plus 1TB", 
+                category: "SSD", 
+                price: 6499.00,
                 oldPrice: null,
-                image: "https://easypc.com.ph/cdn/shop/files/WesternDigital1tbHarddiskDriveBlue-b_2048x.jpg?v=1698993943",
-                specs: "7200 RPM, SATA III, 64MB Cache",
+                image: "https://m.media-amazon.com/images/I/61zK7l3jjwL._AC_SL1500_.jpg",
+                specs: "Gen4, 6600 MB/s",
+                rating: 4.7,
+                reviews: 198,
+                badge: null
+            },
+
+            // HDD
+            { 
+                id: 19, 
+                name: "Seagate Barracuda 2TB", 
+                category: "HDD", 
+                price: 3499.00,
+                oldPrice: null,
+                image: "https://easypc.com.ph/cdn/shop/files/Seagate2TBHardDrive_2048x.jpg?v=1698993334",
+                specs: "7200 RPM, SATA III",
                 rating: 4.5,
                 reviews: 312,
                 badge: null
-            }
+            },
+            { 
+                id: 20, 
+                name: "Western Digital 1TB Blue", 
+                category: "HDD", 
+                price: 2299.00,
+                oldPrice: null,
+                image: "https://easypc.com.ph/cdn/shop/files/WesternDigital1tbHarddiskDriveBlue-b_2048x.jpg?v=1698993943",
+                specs: "7200 RPM, 64MB Cache",
+                rating: 4.6,
+                reviews: 278,
+                badge: "Sale"
+            },
+            // PSU
+            { 
+                id: 21, 
+                name: "Corsair RM850x", 
+                category: "PSU", 
+                price: 8499.00,
+                oldPrice: null,
+                image: "https://m.media-amazon.com/images/I/71lf9aTTHRL._AC_SL1500_.jpg",
+                specs: "850W 80+ Gold Modular",
+                rating: 4.8,
+                reviews: 210,
+                badge: "Hot"
+            },
+            { 
+                id: 22, 
+                name: "ASUS ROG Thor 1000W Platinum II", 
+                category: "PSU", 
+                price: 17999.00,
+                oldPrice: null,
+                image: "https://m.media-amazon.com/images/I/81qqwFzDk1L._AC_SL1500_.jpg",
+                specs: "1000W 80+ Platinum",
+                rating: 4.9,
+                reviews: 190,
+                badge: "Premium"
+            },
         ];
+
+            
+            
 
         let currentFilter = 'all';
         let currentSort = 'featured';
