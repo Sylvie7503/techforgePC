@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TechForge PC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo" onclick="window.location.href='index.html'">⚡ TechForge PC</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="deals.html">Deals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="search-cart">
+                <div class="search-box">
+                    <input type="text" placeholder="Search..." id="searchInput">
+                </div>
+                <button class="cart-btn" onclick="alert('Cart: 0 items')">
+                    🛒 Cart (<span id="cartCount">0</span>)
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Get In Touch</h1>
+        <p>We're here to help with all your PC building needs</p>
+    </section>
+
+    <div class="contact-container">
+        <div class="contact-info">
+            <div class="info-card">
+                <span class="info-icon">📍</span>
+                <h3 class="info-title">Visit Our Store</h3>
+                <div class="info-details">
+                    <p>TechForge PC Headquarters</p>
+                    <p>123 Tech Street, Silicon Valley</p>
+                    <p>San Francisco, CA 94102</p>
+                    <p style="margin-top: 1rem;">
+                        <strong>Hours:</strong><br>
+                        Mon-Fri: 9:00 AM - 8:00 PM<br>
+                        Sat-Sun: 10:00 AM - 6:00 PM
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <span class="info-icon">📞</span>
+                <h3 class="info-title">Call Us</h3>
+                <div class="info-details">
+                    <p><strong>Sales:</strong> <a href="tel:+18005551234">+1 (800) 555-1234</a></p>
+                    <p><strong>Support:</strong> <a href="tel:+18005555678">+1 (800) 555-5678</a></p>
+                    <p><strong>Technical:</strong> <a href="tel:+18005559012">+1 (800) 555-9012</a></p>
+                    <p style="margin-top: 1rem; color: #888;">24/7 Customer Support Available</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <span class="info-icon">📧</span>
+                <h3 class="info-title">Email Us</h3>
+                <div class="info-details">
+                    <p><strong>General:</strong> <a href="mailto:info@techforgepc.com">info@techforgepc.com</a></p>
+                    <p><strong>Sales:</strong> <a href="mailto:sales@techforgepc.com">sales@techforgepc.com</a></p>
+                    <p><strong>Support:</strong> <a href="mailto:support@techforgepc.com">support@techforgepc.com</a></p>
+                    <p style="margin-top: 1rem; color: #888;">Response within 24 hours</p>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <span class="info-icon">🌐</span>
+                <h3 class="info-title">Follow Us</h3>
+                <div class="info-details">
+                    <p style="margin-bottom: 1rem;">Stay connected on social media</p>
+                    <div class="social-links">
+                        <a href="#" class="social-btn" title="Facebook">📘</a>
+                        <a href="#" class="social-btn" title="Twitter">🐦</a>
+                        <a href="#" class="social-btn" title="Instagram">📷</a>
+                        <a href="#" class="social-btn" title="YouTube">📺</a>
+                        <a href="#" class="social-btn" title="Discord">💬</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form-container">
+            <h2 class="form-title">Send Us a Message</h2>
+            <p class="form-subtitle">Fill out the form below and we'll get back to you shortly</p>
+            
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name *</label>
+                        <input type="text" id="firstName" required placeholder="John">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name *</label>
+                        <input type="text" id="lastName" required placeholder="Doe">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" required placeholder="john@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="+1 (555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" required>
+                        <option value="">Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="sales">Sales Question</option>
+                        <option value="support">Technical Support</option>
+                        <option value="order">Order Status</option>
+                        <option value="return">Returns & Refunds</option>
+                        <option value="partnership">Partnership Opportunity</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" required placeholder="Tell us how we can help you..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="map-section">
+        <h2 class="section-title">Find Us</h2>
+        <div class="map-container">
+            <div class="map-placeholder">
+                <div class="map-placeholder-icon">🗺️</div>
+                <p>Map Location</p>
+                <p style="font-size: 0.9rem; color: #666;">Replace this with Google Maps embed or your preferred map service</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-question">❓ What are your shipping options?</div>
+                <div class="faq-answer">We offer free standard shipping on orders over $50. Express shipping is available for $9.99 and overnight shipping for $19.99.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">❓ Do you offer warranty on products?</div>
+                <div class="faq-answer">Yes! All products come with manufacturer warranty. We also offer extended warranty plans for additional coverage.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">❓ Can I return or exchange items?</div>
+                <div class="faq-answer">We accept returns within 30 days of purchase. Items must be in original condition with all packaging and accessories.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">❓ Do you build custom PCs?</div>
+                <div class="faq-answer">Absolutely! Our expert team can help you design and build the perfect custom PC for your needs and budget.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">❓ What payment methods do you accept?</div>
+                <div class="faq-answer">We accept all major credit cards, PayPal, Apple Pay, Google Pay, and offer financing options through Affirm.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">❓ Do you offer price matching?</div>
+                <div class="faq-answer">Yes! We match prices from authorized retailers. Just contact us with proof of the lower price within 14 days of purchase.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Warranty</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">PC Builder</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechForge PC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Get form values
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Get submit button
+            const submitBtn = event.target.querySelector('.submit-btn');
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission
+            setTimeout(() => {
+                // Show success notification
+                showNotification(`Thank you, ${firstName}! Your message has been sent successfully. We'll get back to you soon.`);
+                
+                // Reset form
+                document.getElementById('contactForm').reset();
+                
+                // Reset button
+                submitBtn.textContent = 'Send Message';
+                submitBtn.disabled = false;
+
+                // Log form data (in real app, this would be sent to server)
+                console.log('Form submitted:', {
+                    firstName,
+                    lastName,
+                    email,
+                    phone,
+                    subject,
+                    message,
+                    timestamp: new Date().toISOString()
+                });
+            }, 1500);
+        }
+
+        function showNotification(message) {
+            const notif = document.createElement('div');
+            notif.className = 'notification';
+            notif.textContent = message;
+            document.body.appendChild(notif);
+            setTimeout(() => notif.remove(), 5000);
+        }
+
+        // FAQ item click to expand (optional enhancement)
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.background = 'rgba(0, 212, 255, 0.1)';
+                setTimeout(() => {
+                    this.style.background = 'rgba(30, 30, 46, 0.6)';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>

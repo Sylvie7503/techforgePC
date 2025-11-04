@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - TechForge PC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo" onclick="window.location.href='index.html'">⚡ TechForge PC</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="deals.html">Deals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="search-cart">
+                <div class="search-box">
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                </div>
+                <button class="cart-btn" onclick="showCart()">
+                    🛒 Cart (<span id="cartCount">0</span>)
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h1>Our Products</h1>
+        <p>Discover premium PC hardware for every build</p>
+    </section>
+
+    <div class="products-container">
+        <div class="filters-section">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label>Category:</label>
+                    <button class="filter-btn active" onclick="filterByCategory('all', this)">All</button>
+                    <button class="filter-btn" onclick="filterByCategory('CPU', this)">CPU</button>
+                    <button class="filter-btn" onclick="filterByCategory('GPU', this)">GPU</button>
+                    <button class="filter-btn" onclick="filterByCategory('RAM', this)">RAM</button>
+                    <button class="filter-btn" onclick="filterByCategory('Storage', this)">Storage</button>
+                    <button class="filter-btn" onclick="filterByCategory('Motherboard', this)">Motherboard</button>
+                    <button class="filter-btn" onclick="filterByCategory('Cooling', this)">Cooling</button>
+                </div>
+                <div class="filter-group" style="margin-left: auto;">
+                    <label>Sort by:</label>
+                    <select class="sort-select" onchange="sortProducts(this.value)">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A-Z</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+            <!-- Products will be rendered here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Shopping Cart</h2>
+                <button class="close-btn" onclick="closeCart()">×</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Warranty</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">PC Builder</a></li>
+                    <li><a href="deals.html">Deals</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechForge PC. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // All 12 Products Data
+        const products = [
+            { 
+                id: 1, 
+                name: "AMD Ryzen 9 7950X", 
+                category: "CPU", 
+                price: 549.99,
+                oldPrice: 699.99,
+                icon: "🔥",
+                specs: "16 Cores, 32 Threads, 5.7 GHz Max Boost",
+                rating: 4.8,
+                reviews: 256,
+                badge: "Hot"
+            },
+            { 
+                id: 2, 
+                name: "Intel Core i9-14900K", 
+                category: "CPU", 
+                price: 589.99,
+                oldPrice: null,
+                icon: "⚡",
+                specs: "24 Cores, 32 Threads, 6.0 GHz Turbo",
+                rating: 4.9,
+                reviews: 189,
+                badge: "New"
+            },
+            { 
+                id: 3, 
+                name: "NVIDIA RTX 4090", 
+                category: "GPU", 
+                price: 1599.99,
+                oldPrice: null,
+                icon: "🎮",
+                specs: "24GB GDDR6X, 16384 CUDA Cores",
+                rating: 5.0,
+                reviews: 412,
+                badge: "Best Seller"
+            },
+            { 
+                id: 4, 
+                name: "AMD RX 7900 XTX", 
+                category: "GPU", 
+                price: 999.99,
+                oldPrice: 1099.99,
+                icon: "🎯",
+                specs: "24GB GDDR6, Ray Tracing",
+                rating: 4.7,
+                reviews: 298,
+                badge: "Sale"
+            },
+            { 
+                id: 5, 
+                name: "G.Skill Trident Z5 32GB", 
+                category: "RAM", 
+                price: 139.99,
+                oldPrice: null,
+                icon: "💾",
+                specs: "DDR5-6000, CL30, RGB",
+                rating: 4.6,
+                reviews: 178,
+                badge: null
+            },
+            { 
+                id: 6, 
+                name: "Corsair Vengeance 64GB", 
+                category: "RAM", 
+                price: 249.99,
+                oldPrice: 299.99,
+                icon: "🚀",
+                specs: "DDR5-5600, CL36, Dual Kit",
+                rating: 4.8,
+                reviews: 201,
+                badge: "Sale"
+            },
+            { 
+                id: 7, 
+                name: "Samsung 990 PRO 2TB", 
+                category: "Storage", 
+                price: 179.99,
+                oldPrice: null,
+                icon: "💿",
+                specs: "NVMe Gen 4, 7450 MB/s Read",
+                rating: 4.9,
+                reviews: 534,
+                badge: "Hot"
+            },
+            { 
+                id: 8, 
+                name: "WD Black SN850X 4TB", 
+                category: "Storage", 
+                price: 349.99,
+                oldPrice: 449.99,
+                icon: "📀",
+                specs: "NVMe Gen 4, 7300 MB/s",
+                rating: 4.7,
+                reviews: 367,
+                badge: "Sale"
+            },
+            { 
+                id: 9, 
+                name: "ASUS ROG Strix X670E", 
+                category: "Motherboard", 
+                price: 499.99,
+                oldPrice: null,
+                icon: "🖥️",
+                specs: "AM5, PCIe 5.0, WiFi 6E",
+                rating: 4.8,
+                reviews: 145,
+                badge: "New"
+            },
+            { 
+                id: 10, 
+                name: "MSI MAG Z790", 
+                category: "Motherboard", 
+                price: 379.99,
+                oldPrice: null,
+                icon: "⚙️",
+                specs: "LGA1700, DDR5, PCIe 5.0",
+                rating: 4.6,
+                reviews: 223,
+                badge: null
+            },
+            { 
+                id: 11, 
+                name: "NZXT Kraken 360", 
+                category: "Cooling", 
+                price: 199.99,
+                oldPrice: null,
+                icon: "❄️",
+                specs: "360mm AIO, RGB, Quiet Performance",
+                rating: 4.7,
+                reviews: 312,
+                badge: null
+            },
+            { 
+                id: 12, 
+                name: "Arctic Liquid Freezer II", 
+                category: "Cooling", 
+                price: 139.99,
+                oldPrice: 169.99,
+                icon: "🧊",
+                specs: "280mm AIO, Silent Operation",
+                rating: 4.9,
+                reviews: 289,
+                badge: "Sale"
+            }
+        ];
+
+        let currentFilter = 'all';
+        let currentSort = 'featured';
+
+        // Render products
+        function renderProducts(filter = 'all', sort = 'featured') {
+            const grid = document.getElementById('productGrid');
+            if (!grid) return;
+            
+            let filtered = filter === 'all' ? [...products] : products.filter(p => p.category === filter);
+            
+            // Sort products
+            switch(sort) {
+                case 'price-low':
+                    filtered.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filtered.sort((a, b) => b.price - a.price);
+                    break;
+                case 'name':
+                    filtered.sort((a, b) => a.name.localeCompare(b.name));
+                    break;
+            }
+            
+            grid.innerHTML = filtered.map(product => `
+                <div class="product-card">
+                    <div class="product-image">
+                        ${product.icon}
+                        ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${product.category}</div>
+                        <h3 class="product-title">${product.name}</h3>
+                        <div class="product-specs">${product.specs}</div>
+                        <div class="product-rating">
+                            <span class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</span>
+                            <span class="rating-count">(${product.reviews})</span>
+                        </div>
+                        <div class="product-price">
+                            ₱${product.price.toFixed(2)}
+                            ${product.oldPrice ? `<span class="old-price">₱${product.oldPrice.toFixed(2)}</span>` : ''}
+                        </div>
+                        <div class="product-actions">
+                            <button class="add-to-cart" onclick="addProductToCart(${product.id})">Add to Cart</button>
+                            <button class="wishlist-btn" onclick="addToWishlist(${product.id})">♡</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add product to cart
+        function addProductToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) {
+                showNotification('Product not found!');
+                return;
+            }
+            
+            const cartItem = {
+                id: product.id,
+                name: product.name,
+                category: product.category,
+                price: product.price,
+                icon: product.icon
+            };
+            
+            // Use the global addToCart function
+            if (typeof window.addToCart === 'function') {
+                window.addToCart(cartItem);
+            } else {
+                showNotification('Cart system not available. Please refresh the page.');
+            }
+        }
+
+        // Add to wishlist
+        function addToWishlist(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                showNotification(`${product.name} added to wishlist!`);
+            }
+        }
+
+        // Filter by category
+        function filterByCategory(category, btn) {
+            currentFilter = category;
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            if (btn && btn.classList) btn.classList.add('active');
+            
+            renderProducts(category, currentSort);
+        }
+
+        // Sort products
+        function sortProducts(sortType) {
+            currentSort = sortType;
+            renderProducts(currentFilter, sortType);
+        }
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                const filtered = products.filter(p => 
+                    p.name.toLowerCase().includes(query) || 
+                    p.category.toLowerCase().includes(query) ||
+                    p.specs.toLowerCase().includes(query)
+                );
+                
+                const grid = document.getElementById('productGrid');
+                if (!grid) return;
+                
+                grid.innerHTML = filtered.map(product => `
+                    <div class="product-card">
+                        <div class="product-image">
+                            ${product.icon}
+                            ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                        </div>
+                        <div class="product-info">
+                            <div class="product-category">${product.category}</div>
+                            <h3 class="product-title">${product.name}</h3>
+                            <div class="product-specs">${product.specs}</div>
+                            <div class="product-rating">
+                                <span class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</span>
+                                <span class="rating-count">(${product.reviews})</span>
+                            </div>
+                            <div class="product-price">
+                                ₱${product.price.toFixed(2)}
+                                ${product.oldPrice ? `<span class="old-price">₱${product.oldPrice.toFixed(2)}</span>` : ''}
+                            </div>
+                            <div class="product-actions">
+                                <button class="add-to-cart" onclick="addProductToCart(${product.id})">Add to Cart</button>
+                                <button class="wishlist-btn" onclick="addToWishlist(${product.id})">♡</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            });
+        }
+
+        // Initialize products
+        renderProducts();
+    </script>
+
+    <!-- Load cart.js AFTER the page content -->
+    <script src="cart.js"></script>
+</body>
+</html>
