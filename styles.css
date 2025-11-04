@@ -295,6 +295,11 @@
             font-size: 5rem;
             position: relative;
         }
+        .trending-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* keeps aspect ratio while filling the box */
+            }
 
         .trending-badge {
             position: absolute;
