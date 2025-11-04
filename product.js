@@ -3,84 +3,375 @@
             // 🧠 CPU
             { 
                 id: 1, 
-                name: "AMD Ryzen 9 7950X", 
+                name: "Intel Core i9-14900K", 
                 category: "CPU", 
-                price: 549.99,
-                oldPrice: 699.99,
-                image: "https://m.media-amazon.com/images/I/71O2AJkJpGL.jpg",
-                specs: "16 Cores, 32 Threads, 5.7 GHz Max Boost",
-                rating: 4.8,
-                reviews: 256,
-                badge: "Hot"
+                price: 35999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/19-118-462-01_500x.jpg?v=1760516372",
+                specs: "24 Cores, 32 Threads, up to 6.0GHz, LGA1700",
+                rating: 4.9,
+                reviews: 421,
+                badge: "Flagship"
             },
             { 
                 id: 2, 
-                name: "Intel Core i9-14900K", 
+                name: "Intel Core i7-14700K", 
                 category: "CPU", 
-                price: 589.99,
+                price: 28999.00,
                 oldPrice: null,
-                image: "https://m.media-amazon.com/images/I/61IzFqFZCUL.jpg",
-                specs: "24 Cores, 32 Threads, 6.0 GHz Turbo",
-                rating: 4.9,
-                reviews: 189,
-                badge: "New"
-            },
-
-            // 🎮 GPU
-            { 
-                id: 3, 
-                name: "NVIDIA RTX 4090", 
-                category: "GPU", 
-                price: 1599.99,
-                oldPrice: null,
-                image: "https://m.media-amazon.com/images/I/71N0G0I5GQL._AC_SL1500_.jpg",
-                specs: "24GB GDDR6X, 16384 CUDA Cores",
-                rating: 5.0,
-                reviews: 412,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/19-118-466-05_500x.jpg?v=1760520418",
+                specs: "20 Cores, 28 Threads, up to 5.6GHz, LGA1700",
+                rating: 4.8,
+                reviews: 312,
                 badge: "Best Seller"
             },
             { 
-                id: 4, 
-                name: "AMD RX 7900 XTX", 
-                category: "GPU", 
-                price: 999.99,
-                oldPrice: 1099.99,
-                image: "https://m.media-amazon.com/images/I/61Pek6U82OL._AC_SL1500_.jpg",
-                specs: "24GB GDDR6, Ray Tracing",
-                rating: 4.7,
-                reviews: 298,
-                badge: "Sale"
-            },
-
-            // 💾 RAM
-            { 
-                id: 5, 
-                name: "G.Skill Trident Z5 32GB", 
-                category: "RAM", 
-                price: 139.99,
+                id: 3, 
+                name: "Intel Core i7-12700F", 
+                category: "CPU", 
+                price: 15999.00,
                 oldPrice: null,
-                image: "https://m.media-amazon.com/images/I/71A1W-+6nZL._AC_SL1500_.jpg",
-                specs: "DDR5-6000, CL30, RGB",
-                rating: 4.6,
-                reviews: 178,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/products/19-118-359-03_700x.jpg?v=1676876036",
+                specs: "12 Cores, 20 Threads, up to 4.9GHz, LGA1700",
+                rating: 4.7,
+                reviews: 221,
                 badge: null
             },
             { 
-                id: 6, 
-                name: "Corsair Vengeance 64GB", 
-                category: "RAM", 
-                price: 249.99,
-                oldPrice: 299.99,
-                image: "https://m.media-amazon.com/images/I/71NOvm9CBCL._AC_SL1500_.jpg",
-                specs: "DDR5-5600, CL36, Dual Kit",
+                id: 4, 
+                name: "Intel Core i5-14600K", 
+                category: "CPU", 
+                price: 18999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/19-118-470-07_700x.jpg?v=1697683583",
+                specs: "14 Cores, 20 Threads, up to 5.3GHz, LGA1700",
                 rating: 4.8,
-                reviews: 201,
-                badge: "Sale"
+                reviews: 267,
+                badge: "Popular"
             },
-
-            // 🖥️ Motherboard
+            { 
+                id: 5, 
+                name: "Intel Core i7-9700K", 
+                category: "CPU", 
+                price: 9999.00,
+                oldPrice: null,
+                image: "https://gw.alicdn.com/imgextra/TB1i0nzHUY1gK0jSZFMXXaWcVXa.jpg_540x540.jpg",
+                specs: "8 Cores, 8 Threads, up to 4.9GHz, LGA1151",
+                rating: 4.6,
+                reviews: 198,
+                badge: "Classic"
+            },
+            { 
+                id: 6, 
+                name: "Intel Core i7-8700", 
+                category: "CPU", 
+                price: 8499.00,
+                oldPrice: null,
+                image: "https://easypc.com.ph/cdn/shop/products/875-a_2048x.jpg?v=1588506623",
+                specs: "6 Cores, 12 Threads, up to 4.6GHz, LGA1151",
+                rating: 4.6,
+                reviews: 173,
+                badge: null
+            },
             { 
                 id: 7, 
+                name: "AMD Ryzen 9 9950X", 
+                category: "CPU", 
+                price: 38999.00,
+                oldPrice: null,
+                image: "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2613900-ryzen-9-9950x.jpg",
+                specs: "16 Cores, 32 Threads, up to 5.7GHz, AM5",
+                rating: 4.9,
+                reviews: 254,
+                badge: "Flagship"
+            },
+            { 
+                id: 8, 
+                name: "AMD Ryzen 9 7900X3D", 
+                category: "CPU", 
+                price: 30999.00,
+                oldPrice: null,
+                image: "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-9-7900x3d.jpg",
+                specs: "12 Cores, 24 Threads, 3D V-Cache, AM5",
+                rating: 4.8,
+                reviews: 289,
+                badge: "Premium"
+            },
+            { 
+                id: 9, 
+                name: "AMD Ryzen 7 7800X3D", 
+                category: "CPU", 
+                price: 24999.00,
+                oldPrice: null,
+                image: "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-7-7800x3d.jpg",
+                specs: "8 Cores, 16 Threads, 3D V-Cache, AM5",
+                rating: 4.9,
+                reviews: 356,
+                badge: "Best Seller"
+            },
+            { 
+                id: 10, 
+                name: "AMD Ryzen 7 5800X3D", 
+                category: "CPU", 
+                price: 19999.00,
+                oldPrice: null,
+                image: "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-7-5800x3d.jpg",
+                specs: "8 Cores, 16 Threads, 3D V-Cache, AM4",
+                rating: 4.8,    
+                reviews: 407,
+                badge: "Popular"
+            },
+
+
+            // 🎮 GPU
+            { 
+                id: 11, 
+                name: "NVIDIA GeForce RTX 5090", 
+                category: "GPU", 
+                price: 184999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/fbfddfbdfbfdbbfd_800x.jpg?v=1741135515",
+                specs: "24GB GDDR7, DLSS 4, Ray Tracing, PCIe 5.0",
+                rating: 4.9,
+                reviews: 312,
+                badge: "Flagship"
+            },
+            { 
+                id: 12, 
+                name: "AMD Radeon RX 9070 XT", 
+                category: "GPU", 
+                price: 99999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/fsdfbbsdbsdbsd_800x.jpg?v=1741340219",
+                specs: "20GB GDDR7, RDNA 4, Ray Tracing",
+                rating: 4.8,
+                reviews: 187,
+                badge: "New"
+            },
+            { 
+                id: 13, 
+                name: "AMD Radeon RX 9060 XT 16GB", 
+                category: "GPU", 
+                price: 74999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/unnamed_11_e2e8163c-0e5e-4ff4-a71f-759393dd9b30_800x.jpg?v=1749729468",
+                specs: "16GB GDDR6, RDNA 4, PCIe 5.0",
+                rating: 4.7,
+                reviews: 142,
+                badge: null
+            },
+            { 
+                id: 14, 
+                name: "NVIDIA GeForce RTX 5070", 
+                category: "GPU", 
+                price: 67999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/unnamed-2025-03-05T180941.892_800x.jpg?v=1750243484",
+                specs: "16GB GDDR7, DLSS 4, Ray Tracing",
+                rating: 4.8,
+                reviews: 204,
+                badge: "Popular"
+            },
+            { 
+                id: 15, 
+                name: "NVIDIA GeForce RTX 5070 Ti", 
+                category: "GPU", 
+                price: 78999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/GeForceRTX_5070TiEAGLEOCSFF16G-11_800x.jpg?v=1740120230",
+                specs: "16GB GDDR7, DLSS 4, Ray Tracing",
+                rating: 4.8,
+                reviews: 189,
+                badge: "Best Seller"
+            },
+            { 
+                id: 16, 
+                name: "NVIDIA GeForce RTX 5060", 
+                category: "GPU", 
+                price: 42999.00,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/sdghnfcyh_800x.jpg?v=1747732447",
+                specs: "12GB GDDR6, DLSS 4, Ray Tracing",
+                rating: 4.6,
+                reviews: 256,
+                badge: null
+            },
+            { 
+                id: 17, 
+                name: "NVIDIA GeForce RTX 5080", 
+                category: "GPU", 
+                price: 124999.00,
+                oldPrice: null,
+                image: "https://asset.msi.com/resize/image/global/product/product_173710004234f04a0f44dd01f025e8bee23592ca90.png62405b38c58fe0f07fcef2367d8a9ba1/600.png",
+                specs: "20GB GDDR7, DLSS 4, PCIe 5.0",
+                rating: 4.9,
+                reviews: 331,
+                badge: "Premium"
+            },
+            { 
+                id: 18, 
+                name: "NVIDIA GeForce RTX 3060 12GB", 
+                category: "GPU", 
+                price: 18999.00,
+                oldPrice: null,
+                image: "https://easypc.com.ph/cdn/shop/products/MSI_RTX_3060_Ventus_2X_OC-a_2048x.jpg?v=1697068614",
+                specs: "12GB GDDR6, DLSS 3, Ray Tracing",
+                rating: 4.7,
+                reviews: 492,
+                badge: "Budget Pick"
+            },
+            { 
+                id: 19, 
+                name: "NVIDIA GeForce RTX 4090", 
+                category: "GPU", 
+                price: 132999.00,
+                oldPrice: null,
+                image: "https://bermorzone.com.ph/wp-content/uploads/2022/09/rtx-4090-rog-strix_ph-btz.webp",
+                specs: "24GB GDDR6X, DLSS 3.5, PCIe 5.0",
+                rating: 4.9,
+                reviews: 517,
+                badge: "Premium"
+            },
+            { 
+                id: 20, 
+                name: "NVIDIA GeForce GTX 1660 SUPER", 
+                category: "GPU", 
+                price: 12999.00,
+                oldPrice: null,
+                image: "https://bermorzone.com.ph/wp-content/uploads/2019/11/14-932-224-V06.jpg",
+                specs: "6GB GDDR6, Turing Architecture",
+                rating: 4.7,
+                reviews: 611,
+                badge: "Classic"
+            },
+
+
+            // 💾 RAM
+            {
+                id: 21,
+                name: "Corsair Vengeance LPX 16GB DDR4 3200MHz",
+                category: "RAM",
+                price: 2999.00,
+                oldPrice: null,
+                image: "https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Memory/CMK16GX4M2B3200C16/Gallery/VENG_LPX_BLK_01.webp",
+                specs: "16GB (2x8GB) DDR4, 3200MHz, CL16, Black",
+                rating: 4.8,
+                reviews: 215,
+                badge: "Best Seller"
+            },
+            {
+                id: 22,
+                name: "Kingston Fury Beast 16GB DDR4 3600MHz",
+                category: "RAM",
+                price: 3199.00,
+                oldPrice: null,
+                image: "https://maximumhardware.store/image/cache/catalog/Kingston/A4YUD210826116E1L-1000x1000w.jpg",
+                specs: "16GB (2x8GB) DDR4, 3600MHz, CL17",
+                rating: 4.7,
+                reviews: 182,
+                badge: "Popular"
+            },
+            {
+                id: 23,
+                name: "G.Skill Trident Z RGB 32GB DDR4 3600MHz",
+                category: "RAM",
+                price: 6999.00,
+                oldPrice: null,
+                image: "https://www.gskill.com/_upload/images/156282399310.png",
+                specs: "32GB (2x16GB) DDR4, 3600MHz, RGB Lighting",
+                rating: 4.9,
+                reviews: 241,
+                badge: "Premium"
+            },
+            {
+                id: 24,
+                name: "Corsair Vengeance RGB Pro 32GB DDR4 3200MHz",
+                category: "RAM",
+                price: 6699.00,
+                oldPrice: null,
+                image: "https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Memory/CMW32GX4M2E3200C16/Gallery/Vengeance_RGB_Pro_02.webp",
+                specs: "32GB (2x16GB) DDR4, 3200MHz, RGB, CL16",
+                rating: 4.8,
+                reviews: 228,
+                badge: "RGB"
+            },
+            {
+                id: 25,
+                name: "TeamGroup T-Force Delta RGB 16GB DDR5 6000MHz",
+                category: "RAM",
+                price: 4799.00,
+                oldPrice: null,
+                image: "https://images.teamgroupinc.com/products/memory/u-dimm/ddr5/delta-rgb/white/03.jpg",
+                specs: "16GB (2x8GB) DDR5, 6000MHz, RGB, White",
+                rating: 4.9,
+                reviews: 192,
+                badge: "New Arrival"
+            },
+            {
+                id: 26,
+                name: "Crucial DDR5 32GB 5600MHz",
+                category: "RAM",
+                price: 6499.00,
+                oldPrice: null,
+                image: "https://imgs.search.brave.com/z4bbYTtE9BrJHBhGexP8X2ZHYGRd4Ch-KgHsx30cA1k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzYxZUxjcnRuODBM/LmpwZw",
+                specs: "32GB (2x16GB) DDR5, 5600MHz, CL46",
+                rating: 4.7,
+                reviews: 134,
+                badge: null
+            },
+            {
+                id: 27,
+                name: "ADATA XPG Lancer RGB 32GB DDR5 6000MHz",
+                category: "RAM",
+                price: 6999.00,
+                oldPrice: null,
+                image: "https://imgs.search.brave.com/YAHACIcOeZTOszwAb5JE5r4dAymfUihhjFeC43W85zo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbmZv/bWF4cGFyaXMuY29t/LzI0MzI5LW1lZGl1/bV9kZWZhdWx0L2Fk/YXRhLXhwZy1sYW5j/ZXItcmdiLWRkcjUt/MngxNmdiLTYwMDBj/MzAtbm9pci5qcGc",
+                specs: "32GB (2x16GB) DDR5, 6000MHz, RGB, CL40",
+                rating: 4.8,
+                reviews: 176,
+                badge: "RGB"
+            },
+            {
+                id: 28,
+                name: "Patriot Viper Steel 16GB DDR4 4000MHz",
+                category: "RAM",
+                price: 3799.00,
+                oldPrice: null,
+                image: "https://m.media-amazon.com/images/I/71U2arsvsUL._UF1000,1000_QL80_.jpg",
+                specs: "16GB (2x8GB) DDR4, 4000MHz, CL19",
+                rating: 4.6,
+                reviews: 103,
+                badge: "High Speed"
+            },
+            {
+                id: 29,
+                name: "Kingston Fury Renegade 32GB DDR5 6400MHz",
+                category: "RAM",
+                price: 7599.00,
+                oldPrice: null,
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWO0C0Cy7h6t8AuYnul5hix-XC8Gnk-jM5Dg&s",
+                specs: "32GB (2x16GB) DDR5, 6400MHz, CL32",
+                rating: 4.9,
+                reviews: 188,
+                badge: "Performance"
+            },
+            {
+                id: 30,
+                name: "G.Skill Ripjaws S5 32GB DDR5 6000MHz",
+                category: "RAM",
+                price: 6999.00,
+                oldPrice: null,
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfw5PGyL1uNIWwYfraysAssQOOkIqLVhUyiw&s",
+                specs: "32GB (2x16GB) DDR5, 6000MHz, CL36, Low Profile",
+                rating: 4.8,
+                reviews: 204,
+                badge: "Popular"
+            },
+
+            
+            // 🖥️ Motherboard
+            { 
+                id: 31, 
                 name: "ASUS ROG Strix Z790-E Gaming WiFi", 
                 category: "Motherboard", 
                 price: 29999.00,  // approx price in PHP
@@ -92,7 +383,7 @@
                 badge: "New"
             },
             { 
-                id: 8, 
+                id: 32, 
                 name: "MSI MAG B550 Tomahawk", 
                 category: "Motherboard", 
                 price: 14999.00,
@@ -104,7 +395,7 @@
                 badge: null
             },
             { 
-                id: 9, 
+                id: 33, 
                 name: "Gigabyte B660M DS3H AX DDR4", 
                 category: "Motherboard", 
                 price: 13999.00,
@@ -116,7 +407,7 @@
                 badge: null
             },
             { 
-                id: 10, 
+                id: 34, 
                 name: "ASRock B550M Steel Legend", 
                 category: "Motherboard", 
                 price: 12999.00,
@@ -128,7 +419,7 @@
                 badge: "Hot"
             },
             { 
-                id: 11, 
+                id: 35, 
                 name: "ASUS PRIME A520M-K", 
                 category: "Motherboard", 
                 price: 8999.00,
@@ -140,7 +431,7 @@
                 badge: null
             },
             { 
-                id: 12, 
+                id: 36, 
                 name: "Gigabyte X670 AORUS Elite AX", 
                 category: "Motherboard", 
                 price: 21999.00,
@@ -152,7 +443,7 @@
                 badge: "Best Seller"
             },
             { 
-                id: 13, 
+                id: 37, 
                 name: "MSI PRO Z790-P WiFi", 
                 category: "Motherboard", 
                 price: 17999.00,
@@ -164,7 +455,7 @@
                 badge: null
             },
             { 
-                id: 14, 
+                id: 38, 
                 name: "ASRock B450M Pro4", 
                 category: "Motherboard", 
                 price: 10999.00,
@@ -176,7 +467,7 @@
                 badge: null
             },
             { 
-                id: 15, 
+                id: 39, 
                 name: "ASUS TUF Gaming X670E-PLUS WiFi", 
                 category: "Motherboard", 
                 price: 24999.00,
@@ -188,7 +479,7 @@
                 badge: "New"
             },
             { 
-                id: 16, 
+                id: 40, 
                 name: "Gigabyte Z690 AORUS Ultra", 
                 category: "Motherboard", 
                 price: 23999.00,
@@ -202,34 +493,34 @@
 
 
             // ❄️ Cooling
-            { 
-                id: 9, 
-                name: "NZXT Kraken 360", 
-                category: "Cooling", 
-                price: 199.99,
-                oldPrice: null,
-                image: "https://m.media-amazon.com/images/I/71RZ9Rdn1TL._AC_SL1500_.jpg",
-                specs: "360mm AIO, RGB, Quiet Performance",
-                rating: 4.7,
-                reviews: 312,
-                badge: null
-            },
-            { 
-                id: 10, 
-                name: "Arctic Liquid Freezer II", 
-                category: "Cooling", 
-                price: 139.99,
-                oldPrice: 169.99,
-                image: "https://m.media-amazon.com/images/I/71bH7fItVWL._AC_SL1500_.jpg",
-                specs: "280mm AIO, Silent Operation",
-                rating: 4.9,
-                reviews: 289,
-                badge: "Sale"
-            },
+            // { 
+            //     id: 9, 
+            //     name: "NZXT Kraken 360", 
+            //     category: "Cooling", 
+            //     price: 199.99,
+            //     oldPrice: null,
+            //     image: "https://m.media-amazon.com/images/I/71RZ9Rdn1TL._AC_SL1500_.jpg",
+            //     specs: "360mm AIO, RGB, Quiet Performance",
+            //     rating: 4.7,
+            //     reviews: 312,
+            //     badge: null
+            // },
+            // { 
+            //     id: 10, 
+            //     name: "Arctic Liquid Freezer II", 
+            //     category: "Cooling", 
+            //     price: 139.99,
+            //     oldPrice: 169.99,
+            //     image: "https://m.media-amazon.com/images/I/71bH7fItVWL._AC_SL1500_.jpg",
+            //     specs: "280mm AIO, Silent Operation",
+            //     rating: 4.9,
+            //     reviews: 289,
+            //     badge: "Sale"
+            // },
 
             // 💿 SSD
             { 
-                id: 23, 
+                id: 41, 
                 name: "Samsung 990 PRO NVMe SSD 4TB", 
                 category: "SSD", 
                 price: 18999.00,
@@ -241,7 +532,7 @@
                 badge: "Hot"
             },
             { 
-                id: 24, 
+                id: 42, 
                 name: "Kingston NV3 NVMe PCIe 4.0 SSD 1TB", 
                 category: "SSD", 
                 price: 5999.00,
@@ -253,7 +544,7 @@
                 badge: null
             },
             { 
-                id: 25, 
+                id: 43, 
                 name: "Samsung 980 NVMe SSD 1TB", 
                 category: "SSD", 
                 price: 6499.00,
@@ -265,7 +556,7 @@
                 badge: "Best Seller"
             },
             { 
-                id: 26, 
+                id: 44, 
                 name: "SanDisk SSD Plus SATA III 480GB", 
                 category: "SSD", 
                 price: 1999.00,
@@ -277,7 +568,7 @@
                 badge: null
             },
             { 
-                id: 27, 
+                id: 45, 
                 name: "ADATA SU650 SATA III SSD 512GB", 
                 category: "SSD", 
                 price: 2099.00,
@@ -289,7 +580,7 @@
                 badge: null
             },
             { 
-                id: 28, 
+                id: 46, 
                 name: "Crucial X10 Pro External SSD 1TB", 
                 category: "SSD", 
                 price: 7999.00,
@@ -301,7 +592,7 @@
                 badge: "New"
             },
             { 
-                id: 29, 
+                id: 47, 
                 name: "Patriot PBE SSD 240GB", 
                 category: "SSD", 
                 price: 1399.00,
@@ -313,7 +604,7 @@
                 badge: null
             },
             { 
-                id: 30, 
+                id: 48, 
                 name: "ORICO C10 10Gbps Portable SSD 512GB", 
                 category: "SSD", 
                 price: 3499.00,
@@ -325,7 +616,7 @@
                 badge: null
             },
             { 
-                id: 31, 
+                id: 49, 
                 name: "Crucial P3 Plus PCIe M.2 SSD 500GB", 
                 category: "SSD", 
                 price: 2899.00,
@@ -337,7 +628,7 @@
                 badge: null
             },
             { 
-                id: 32, 
+                id: 50, 
                 name: "WD SSD M.2 500GB", 
                 category: "SSD", 
                 price: 2699.00,
@@ -352,7 +643,7 @@
 
             // HDD
             { 
-                id: 33, 
+                id: 51, 
                 name: "Western Digital 1TB Harddisk Drive Blue", 
                 category: "HDD", 
                 price: 2399.00,
@@ -364,7 +655,7 @@
                 badge: null
             },
             { 
-                id: 34, 
+                id: 52, 
                 name: "Western Digital 2TB Harddisk Drive Blue", 
                 category: "HDD", 
                 price: 3799.00,
@@ -376,7 +667,7 @@
                 badge: "Hot"
             },
             { 
-                id: 35, 
+                id: 53, 
                 name: "Seagate Barracuda ST1000DM010 1TB Harddisk Drive", 
                 category: "HDD", 
                 price: 2599.00,
@@ -388,7 +679,7 @@
                 badge: "Best Seller"
             },
             { 
-                id: 36, 
+                id: 54, 
                 name: "Seagate ST2000DM008 2TB Sata Harddisk Drive", 
                 category: "HDD", 
                 price: 3899.00,
@@ -400,7 +691,7 @@
                 badge: null
             },
             { 
-                id: 37, 
+                id: 55, 
                 name: "Seagate 1TB ST1000DM014 Harddisk Drive", 
                 category: "HDD", 
                 price: 2699.00,
@@ -412,7 +703,7 @@
                 badge: null
             },
             { 
-                id: 38, 
+                id: 56, 
                 name: "Seagate Harddisk Drive 320GB", 
                 category: "HDD", 
                 price: 999.00,
@@ -424,7 +715,7 @@
                 badge: null
             },
             { 
-                id: 39, 
+                id: 57, 
                 name: "Western Digital 2TB Harddisk Drive Black", 
                 category: "HDD", 
                 price: 4299.00,
@@ -436,7 +727,7 @@
                 badge: "Premium"
             },
             { 
-                id: 40, 
+                id: 58, 
                 name: "Western Digital 1TB Harddisk Drive Black", 
                 category: "HDD", 
                 price: 2899.00,
@@ -448,7 +739,7 @@
                 badge: null
             },
             { 
-                id: 41, 
+                id: 59, 
                 name: "Toshiba 500GB Harddisk Drive", 
                 category: "HDD", 
                 price: 1699.00,
@@ -460,7 +751,7 @@
                 badge: null
             },
             { 
-                id: 42, 
+                id: 60, 
                 name: "Western Digital 3TB Harddisk Drive Blue", 
                 category: "HDD", 
                 price: 4999.00,
@@ -472,7 +763,7 @@
                 badge: null
             },
             { 
-                id: 43, 
+                id: 61, 
                 name: "Seagate Skyhawk ST6000VX001 6TB Hard Disk Drive", 
                 category: "HDD", 
                 price: 7899.00,
@@ -484,7 +775,7 @@
                 badge: "New"
             },
             { 
-                id: 44, 
+                id: 62, 
                 name: "Western Digital 8TB Surveillance Harddisk Drive Purple", 
                 category: "HDD", 
                 price: 10999.00,
@@ -498,7 +789,7 @@
 
             // PSU
             { 
-                id: 45, 
+                id: 63, 
                 name: "Corsair RM850x 850W 80+ Gold Fully Modular", 
                 category: "PSU", 
                 price: 9299.00,
@@ -510,7 +801,7 @@
                 badge: "Premium"
             },
             { 
-                id: 46, 
+                id: 64, 
                 name: "Seasonic Focus GX-750 750W 80+ Gold Fully Modular", 
                 category: "PSU", 
                 price: 7999.00,
@@ -522,7 +813,7 @@
                 badge: "Best Seller"
             },
             { 
-                id: 47, 
+                id: 65, 
                 name: "Cooler Master MWE 650 Bronze V2 650W 80+ Bronze", 
                 category: "PSU", 
                 price: 3999.00,
@@ -534,7 +825,7 @@
                 badge: null
             },
             { 
-                id: 48, 
+                id: 66, 
                 name: "Thermaltake Toughpower GF1 850W 80+ Gold", 
                 category: "PSU", 
                 price: 7499.00,
@@ -546,7 +837,7 @@
                 badge: "Hot"
             },
             { 
-                id: 49, 
+                id: 67, 
                 name: "EVGA SuperNOVA 750 G5 750W 80+ Gold", 
                 category: "PSU", 
                 price: 7299.00,
@@ -558,7 +849,7 @@
                 badge: null
             },
             { 
-                id: 50, 
+                id: 68, 
                 name: "ASUS TUF Gaming 650W Bronze 80+ Bronze", 
                 category: "PSU", 
                 price: 4599.00,
@@ -570,7 +861,7 @@
                 badge: null
             },
             { 
-                id: 51, 
+                id: 69, 
                 name: "FSP Hydro G Pro 850W 80+ Gold", 
                 category: "PSU", 
                 price: 7999.00,
@@ -582,7 +873,7 @@
                 badge: "Premium"
             },
             { 
-                id: 52, 
+                id: 70, 
                 name: "NZXT C750 750W 80+ Gold Modular", 
                 category: "PSU", 
                 price: 7499.00,
@@ -594,7 +885,7 @@
                 badge: null
             },
             { 
-                id: 53, 
+                id: 71, 
                 name: "Be Quiet! Pure Power 12M 850W 80+ Gold ATX 3.0", 
                 category: "PSU", 
                 price: 8799.00,
@@ -606,7 +897,7 @@
                 badge: "New"
             },
             { 
-                id: 54, 
+                id: 72, 
                 name: "Antec NeoECO 650W 80+ Bronze Semi-Modular", 
                 category: "PSU", 
                 price: 4299.00,
