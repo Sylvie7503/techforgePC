@@ -118,14 +118,16 @@
 
     <script>
         // All 12 Products Data
+       // All Products Data (using images instead of icons)
         const products = [
+            // 🧠 CPU
             { 
                 id: 1, 
                 name: "AMD Ryzen 9 7950X", 
                 category: "CPU", 
                 price: 549.99,
                 oldPrice: 699.99,
-                icon: "🔥",
+                image: "https://m.media-amazon.com/images/I/71O2AJkJpGL.jpg",
                 specs: "16 Cores, 32 Threads, 5.7 GHz Max Boost",
                 rating: 4.8,
                 reviews: 256,
@@ -137,19 +139,21 @@
                 category: "CPU", 
                 price: 589.99,
                 oldPrice: null,
-                icon: "⚡",
+                image: "https://m.media-amazon.com/images/I/61IzFqFZCUL.jpg",
                 specs: "24 Cores, 32 Threads, 6.0 GHz Turbo",
                 rating: 4.9,
                 reviews: 189,
                 badge: "New"
             },
+
+            // 🎮 GPU
             { 
                 id: 3, 
                 name: "NVIDIA RTX 4090", 
                 category: "GPU", 
                 price: 1599.99,
                 oldPrice: null,
-                icon: "🎮",
+                image: "https://m.media-amazon.com/images/I/71N0G0I5GQL._AC_SL1500_.jpg",
                 specs: "24GB GDDR6X, 16384 CUDA Cores",
                 rating: 5.0,
                 reviews: 412,
@@ -161,19 +165,21 @@
                 category: "GPU", 
                 price: 999.99,
                 oldPrice: 1099.99,
-                icon: "🎯",
+                image: "https://m.media-amazon.com/images/I/61Pek6U82OL._AC_SL1500_.jpg",
                 specs: "24GB GDDR6, Ray Tracing",
                 rating: 4.7,
                 reviews: 298,
                 badge: "Sale"
             },
+
+            // 💾 RAM
             { 
                 id: 5, 
                 name: "G.Skill Trident Z5 32GB", 
                 category: "RAM", 
                 price: 139.99,
                 oldPrice: null,
-                icon: "💾",
+                image: "https://m.media-amazon.com/images/I/71A1W-+6nZL._AC_SL1500_.jpg",
                 specs: "DDR5-6000, CL30, RGB",
                 rating: 4.6,
                 reviews: 178,
@@ -185,83 +191,89 @@
                 category: "RAM", 
                 price: 249.99,
                 oldPrice: 299.99,
-                icon: "🚀",
+                image: "https://m.media-amazon.com/images/I/71NOvm9CBCL._AC_SL1500_.jpg",
                 specs: "DDR5-5600, CL36, Dual Kit",
                 rating: 4.8,
                 reviews: 201,
                 badge: "Sale"
             },
+
+            // 🖥️ Motherboard
             { 
                 id: 7, 
-                name: "Samsung 990 PRO 2TB", 
-                category: "Storage", 
-                price: 179.99,
-                oldPrice: null,
-                icon: "💿",
-                specs: "NVMe Gen 4, 7450 MB/s Read",
-                rating: 4.9,
-                reviews: 534,
-                badge: "Hot"
-            },
-            { 
-                id: 8, 
-                name: "WD Black SN850X 4TB", 
-                category: "Storage", 
-                price: 349.99,
-                oldPrice: 449.99,
-                icon: "📀",
-                specs: "NVMe Gen 4, 7300 MB/s",
-                rating: 4.7,
-                reviews: 367,
-                badge: "Sale"
-            },
-            { 
-                id: 9, 
                 name: "ASUS ROG Strix X670E", 
                 category: "Motherboard", 
                 price: 499.99,
                 oldPrice: null,
-                icon: "🖥️",
+                image: "https://m.media-amazon.com/images/I/81vLkqBfS-L._AC_SL1500_.jpg",
                 specs: "AM5, PCIe 5.0, WiFi 6E",
                 rating: 4.8,
                 reviews: 145,
                 badge: "New"
             },
             { 
-                id: 10, 
+                id: 8, 
                 name: "MSI MAG Z790", 
                 category: "Motherboard", 
                 price: 379.99,
                 oldPrice: null,
-                icon: "⚙️",
+                image: "https://m.media-amazon.com/images/I/81MgPZZ-D-L._AC_SL1500_.jpg",
                 specs: "LGA1700, DDR5, PCIe 5.0",
                 rating: 4.6,
                 reviews: 223,
                 badge: null
             },
+
+            // ❄️ Cooling
             { 
-                id: 11, 
+                id: 9, 
                 name: "NZXT Kraken 360", 
                 category: "Cooling", 
                 price: 199.99,
                 oldPrice: null,
-                icon: "❄️",
+                image: "https://m.media-amazon.com/images/I/71RZ9Rdn1TL._AC_SL1500_.jpg",
                 specs: "360mm AIO, RGB, Quiet Performance",
                 rating: 4.7,
                 reviews: 312,
                 badge: null
             },
             { 
-                id: 12, 
+                id: 10, 
                 name: "Arctic Liquid Freezer II", 
                 category: "Cooling", 
                 price: 139.99,
                 oldPrice: 169.99,
-                icon: "🧊",
+                image: "https://m.media-amazon.com/images/I/71bH7fItVWL._AC_SL1500_.jpg",
                 specs: "280mm AIO, Silent Operation",
                 rating: 4.9,
                 reviews: 289,
                 badge: "Sale"
+            },
+
+            // 💿 Storage
+            { 
+                id: 11, 
+                name: "Samsung 990 PRO NVMe SSD 4TB", 
+                category: "Storage", 
+                price: 179.99,
+                oldPrice: null,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/f4s56gsa4g_500x.jpg?v=1760520700",
+                specs: "NVMe Gen 4, 7450 MB/s Read",
+                rating: 4.9,
+                reviews: 534,
+                badge: "Hot"
+            },
+            { 
+                id: 12, 
+                name: "Western Digital 1TB Harddisk Drive Blue", 
+                category: "Storage", 
+                price: 69.99,
+                oldPrice: null,
+                image: "https://easypc.com.ph/cdn/shop/files/WesternDigital1tbHarddiskDriveBlue-b_2048x.jpg?v=1698993943",
+                specs: "7200 RPM, SATA III, 64MB Cache",
+                rating: 4.5,
+                reviews: 312,
+                badge: null
             }
         ];
 
@@ -291,7 +303,7 @@
             grid.innerHTML = filtered.map(product => `
                 <div class="product-card">
                     <div class="product-image">
-                        ${product.icon}
+                        <img src="${product.image}" alt="${product.name}" class="product-img">
                         ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
                     </div>
                     <div class="product-info">
@@ -299,7 +311,7 @@
                         <h3 class="product-title">${product.name}</h3>
                         <div class="product-specs">${product.specs}</div>
                         <div class="product-rating">
-                            <span class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</span>
+                            <span class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))}</span>
                             <span class="rating-count">(${product.reviews})</span>
                         </div>
                         <div class="product-price">
@@ -328,10 +340,9 @@
                 name: product.name,
                 category: product.category,
                 price: product.price,
-                icon: product.icon
+                image: product.image
             };
             
-            // Use the global addToCart function
             if (typeof window.addToCart === 'function') {
                 window.addToCart(cartItem);
             } else {
@@ -350,11 +361,8 @@
         // Filter by category
         function filterByCategory(category, btn) {
             currentFilter = category;
-            
-            // Update active button
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             if (btn && btn.classList) btn.classList.add('active');
-            
             renderProducts(category, currentSort);
         }
 
@@ -381,7 +389,7 @@
                 grid.innerHTML = filtered.map(product => `
                     <div class="product-card">
                         <div class="product-image">
-                            ${product.icon}
+                            <img src="${product.image}" alt="${product.name}" class="product-img">
                             ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
                         </div>
                         <div class="product-info">
@@ -389,7 +397,7 @@
                             <h3 class="product-title">${product.name}</h3>
                             <div class="product-specs">${product.specs}</div>
                             <div class="product-rating">
-                                <span class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</span>
+                                <span class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))}</span>
                                 <span class="rating-count">(${product.reviews})</span>
                             </div>
                             <div class="product-price">
@@ -408,6 +416,7 @@
 
         // Initialize products
         renderProducts();
+
     </script>
 
     <!-- Load cart.js AFTER the page content -->
