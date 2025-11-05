@@ -114,10 +114,7 @@
                         <ul class="category-features">
                             ${cat.features.map(feature => `<li>${feature}</li>`).join('')}
                         </ul>
-                        <div class="category-cta">
-                            <a href="products.html?category=${cat.id}" class="cta-btn btn-primary">View Products</a>
-                            <button class="cta-btn btn-secondary" onclick="showCategoryInfo('${cat.id}')">Learn More</button>
-                        </div>
+                    
                     </div>
                 </div>
             `).join('');

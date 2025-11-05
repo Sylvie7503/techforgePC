@@ -908,6 +908,203 @@
                 reviews: 155,
                 badge: null
             },
+            { 
+                id: 73, 
+                name: "RAKK DASIG X3 Ambidextrous Hotswap Trimode RGB Gaming Mouse (White)", 
+                category: "Peripherals", 
+                price: 1499.00, 
+                oldPrice: 1799.00,
+                image: "https://easypc.com.ph/cdn/shop/files/10488-a_2048x.png?v=1761609543",
+                specs: "Trimode | PAW3311 Sensor | Huano 80M Switch | RGB Lighting | 16000 DPI",
+                rating: 4.8,
+                reviews: 254,
+                badge: "Hot"
+            },
+            { 
+                id: 74, 
+                name: "RAKK Alti BVR / RGY Illuminated Gaming Mouse", 
+                category: "Peripherals", 
+                price: 899.00, 
+                oldPrice: 1099.00,
+                image: "https://rakk.ph/wp-content/uploads/2023/05/716-c.jpg",
+                specs: "Ergonomic Design | RGB Lighting | 6 Buttons | 7200 DPI",
+                rating: 4.6,
+                reviews: 183,
+                badge: "Sale"
+            },
+            { 
+                id: 75, 
+                name: "RAKK Kaptan RGB Black/White Gaming Mouse", 
+                category: "Peripherals", 
+                price: 799.00,
+                oldPrice: 999.00,
+                image: "https://easypc.com.ph/cdn/shop/products/1185-a_866995d0-1e8c-4811-b54a-dddaa094fb10_2048x.jpg?v=1635218506",
+                specs: "RGB Lighting | Adjustable DPI | Lightweight | USB Interface",
+                rating: 4.7,
+                reviews: 210,
+                badge: "Best Seller"
+            },
+            { 
+                id: 76, 
+                name: "Logitech G403 Hero RGB Gaming Mouse", 
+                category: "Peripherals", 
+                price: 2899.00,
+                oldPrice: 3499.00,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/dasd_800x.jpg?v=1705569240",
+                specs: "HERO Sensor | 16000 DPI | RGB | 6 Programmable Buttons",
+                rating: 4.9,
+                reviews: 470,
+                badge: "Top Rated"
+            },
+            { 
+                id: 77, 
+                name: "Logitech G502 Hero Gaming Mouse", 
+                category: "Peripherals", 
+                price: 3699.00,
+                oldPrice: 4199.00,
+                image: "https://www.henryscameraphoto.com/image/cache/catalog/LOGITECH/GAMING-MOUSE/G502/logitech-g502-1-800x800.jpg",
+                specs: "HERO 25K Sensor | 11 Buttons | Adjustable Weights | RGB Lighting",
+                rating: 4.9,
+                reviews: 835,
+                badge: "Pro"
+            },
+            { 
+                id: 78, 
+                name: "SteelSeries Rival 3 62513 Gaming Mouse (Black)", 
+                category: "Peripherals", 
+                price: 1999.00,
+                oldPrice: 2299.00,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/1000000006411.jpg?v=1729325907",
+                specs: "TrueMove Core Sensor | 8500 DPI | RGB Lighting | Durable Switches",
+                rating: 4.8,
+                reviews: 329,
+                badge: "Popular"
+            },
+        
+            // ⌨️ KEYBOARD
+            { 
+                id: 79, 
+                name: "RAKK SINAG PRO Trimode Gasket Mount 1.4\" TFT Screen 96 Keys Mechanical Keyboard (White)", 
+                category: "Peripherals", 
+                price: 4799.00,
+                oldPrice: 5299.00,
+                image: "https://easypc.com.ph/cdn/shop/files/RAKK_SINAG_PRO_Trimode_Gasket_Mount_1.4_TFT_Screen_96_Keys_Mechanical_Keyboard_White-a_2048x.png?v=1721779868",
+                specs: "Trimode | Gasket Mount | RGB | TFT Display | Hot-swappable",
+                rating: 4.9,
+                reviews: 187,
+                badge: "New"
+            },
+            { 
+                id: 80, 
+                name: "Royal Kludge RK61 Plus Trimode Brown Switch Mechanical Keyboard (Black/Indigo)", 
+                category: "Peripherals", 
+                price: 2899.00,
+                oldPrice: 3199.00,
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjS56mRV01zd1STfbICf_vRHWB5xQPZ5l2BQ&s",
+                specs: "Compact 61 Keys | Trimode | RGB | Brown Switches | Wireless",
+                rating: 4.7,
+                reviews: 315,
+                badge: "Best Seller"
+            },
+            { 
+                id: 81, 
+                name: "Redragon K652GG-RGB-PRO AZURE Mechanical Keyboard", 
+                category: "Peripherals", 
+                price: 2499.00,
+                oldPrice: 2799.00,
+                image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/8909.719.jpg?v=1682825112",
+                specs: "RGB Backlit | Hot-Swappable | Compact | Blue Switches",
+                rating: 4.8,
+                reviews: 223,
+                badge: "Hot"
+            },
+            { 
+                id: 82, 
+                name: "Aula F2183 TKL RGB Gaming Mechanical Hotswappable Keyboard", 
+                category: "Peripherals", 
+                price: 1799.00,
+                oldPrice: 1999.00,
+                image: "https://easypc.com.ph/cdn/shop/files/AulaF2183TKLRGBGamingMechanicalHotswappableKeyboard_4_2048x.png?v=1729664734",
+                specs: "Tenkeyless | RGB | Hot-Swappable | Wired | Compact Design",
+                rating: 4.6,
+                reviews: 144,
+                badge: "Sale"
+            },
+            { 
+                id: 83, 
+                name: "RAKK LAM-ANG PRO MAX 87 Keys RGB Trimode Universal Hotswap Keyboard (White)", 
+                category: "Peripherals", 
+                price: 3699.00,
+                oldPrice: 3999.00,
+                image: "https://easypc.com.ph/cdn/shop/files/RAKK_LAM-ANG_PRO_MAX_87_Keys_RGB_Trimode_Universal_Hotswap_Cherry_Keycaps_White-b_2048x.png?v=1726466978",
+                specs: "87 Keys | RGB | Trimode | Hot-Swap | Cherry Profile Keycaps",
+                rating: 4.8,
+                reviews: 262,
+                badge: "Featured"
+            },
+        
+            // 🎧 HEADPHONES
+            { 
+                id: 84, 
+                name: "Redragon H878WB Skuld Pro Lightweight Wireless Gaming Headset (Blue)", 
+                category: "Peripherals", 
+                price: 2699.00,
+                oldPrice: 2999.00,
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqE-D1C1t1rGpRC9eRJVEGUePOModEI2-78w&s",
+                specs: "Wireless | Lightweight | Noise Reduction | RGB | Long Battery Life",
+                rating: 4.7,
+                reviews: 134,
+                badge: "New"
+            },
+            { 
+                id: 85, 
+                name: "RAKK HUNI Wired RGB Gaming Headset (Black/White)", 
+                category: "Peripherals", 
+                price: 1399.00,
+                oldPrice: 1599.00,
+                image: "https://easypc.com.ph/cdn/shop/products/RAKK_HUNI_Wired_Gaming_Headset_RGB_Black-a_2048x.jpg?v=1704767133",
+                specs: "Wired | RGB Lighting | Soft Cushions | Adjustable Mic",
+                rating: 4.6,
+                reviews: 289,
+                badge: "Sale"
+            },
+            { 
+                id: 86, 
+                name: "Corsair Void Pro 7.1 Premium Gaming Headset (Black)", 
+                category: "Peripherals", 
+                price: 4499.00,
+                oldPrice: 4999.00,
+                image: "https://easypc.com.ph/cdn/shop/products/855-a_2048x.jpg?v=1588506603",
+                specs: "7.1 Surround | Noise Cancelling Mic | Memory Foam Earpads",
+                rating: 4.9,
+                reviews: 502,
+                badge: "Pro"
+            },
+            { 
+                id: 87, 
+                name: "Corsair HS50 Stereo Gaming Headset (Green)", 
+                category: "Peripherals", 
+                price: 3199.00,
+                oldPrice: 3499.00,
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSH4-U_P7TCKRAFr1l8OzatFNBZ8j_M7MZJ1w&s",
+                specs: "Stereo Sound | Detachable Mic | Adjustable Fit | Comfortable Padding",
+                rating: 4.8,
+                reviews: 193,
+                badge: "Classic"
+            },
+            { 
+                id: 88, 
+                name: "Corsair HS50 Stereo Gaming Headset (Blue)", 
+                category: "Peripherals", 
+                price: 3199.00,
+                oldPrice: 3499.00,
+                image: "https://easypc.com.ph/cdn/shop/products/858-a_2048x.jpg?v=1588506610",
+                specs: "Stereo Sound | Detachable Mic | Comfortable Design | Durable Build",
+                rating: 4.8,
+                reviews: 211,
+                badge: "Popular"
+            },
+            
 
         ];
 
