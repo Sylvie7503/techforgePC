@@ -20,10 +20,13 @@
             </ul>
             <div class="search-cart">
                 <div class="search-box">
-                    <input type="text" placeholder="Search categories..." id="searchInput">
+                    <input type="text" placeholder="Search products..." id="searchInput">
                 </div>
+                <button class="wishlist-btn-header" onclick="showWishlist()">
+                     Wishlist (<span id="wishlistCount">0</span>)
+                </button>
                 <button class="cart-btn" onclick="showCart()">
-                    🛒 Cart (<span id="cartCount">0</span>)
+                     Cart (<span id="cartCount">0</span>)
                 </button>
             </div>
         </nav>
@@ -58,7 +61,16 @@
             <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
-
+    <!-- Wishlist Modal -->
+        <div class="modal" id="wishlistModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>My Wishlist</h2>
+                    <button class="close-btn" onclick="closeWishlist()">×</button>
+                </div>
+                <div class="modal-body" id="wishlistBody"></div>
+            </div>
+        </div>
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -106,5 +118,6 @@
     <!-- Load cart.js AFTER the page content -->
     <script src="cart.js"></script>
     <script src="categories.js"></script>
+    
 </body>
 </html>

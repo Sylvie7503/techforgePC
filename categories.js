@@ -97,6 +97,116 @@
             { id: 12, name: "Arctic Liquid Freezer II", category: "cooling", price: 139.99, icon: "🧊" }
         ];
 
+        // ==============================
+// WISHLIST SYSTEM (Shared)
+// ==============================
+
+let wishlist = [];
+
+// ✅ Format Price with commas
+function formatPrice(value) {
+    return value.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+// ✅ Load & Save Wishlist
+function loadWishlist() {
+    const saved = localStorage.getItem('techforge_wishlist');
+    if (saved) wishlist = JSON.parse(saved);
+    updateWishlistCount();
+}
+function saveWishlist() {
+    localStorage.setItem('techforge_wishlist', JSON.stringify(wishlist));
+}
+
+// ✅ Update Wishlist Count
+function updateWishlistCount() {
+    const count = wishlist.length;
+    document.querySelectorAll('#wishlistCount').forEach(el => (el.textContent = count));
+}
+
+// ✅ Add to Wishlist
+function addToWishlist(productId) {
+    const product = products.find(p => p.id === productId);
+    if (!product) {
+        showNotification('Product not found!');
+        return;
+    }
+
+    if (wishlist.some(item => item.id === product.id)) {
+        showNotification(`${product.name} is already in your wishlist!`);
+        return;
+    }
+
+    wishlist.push(product);
+    saveWishlist();
+    updateWishlistCount();
+    showNotification(`${product.name} added to wishlist!`);
+    renderWishlist();
+}
+
+// ✅ Remove from Wishlist
+function removeFromWishlist(id) {
+    wishlist = wishlist.filter(item => item.id !== id);
+    saveWishlist();
+    updateWishlistCount();
+    renderWishlist();
+}
+
+// ✅ Render Wishlist Modal
+function renderWishlist() {
+    const modalBody = document.getElementById('wishlistBody');
+    if (!modalBody) return;
+
+    if (wishlist.length === 0) {
+        modalBody.innerHTML = `
+            <div class="empty-cart">
+                <div class="empty-cart-icon">💔</div>
+                <h3>Your wishlist is empty</h3>
+                <p>Start adding your favorite items!</p>
+            </div>
+        `;
+        return;
+    }
+
+    modalBody.innerHTML = wishlist.map(item => `
+        <div class="cart-item">
+            <div class="cart-item-image">
+                <img src="${item.image || 'https://via.placeholder.com/80'}" alt="${item.name}">
+            </div>
+            <div class="cart-item-info">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-category">${item.category}</div>
+                <div class="cart-item-price">₱${formatPrice(item.price || 0)}</div>
+            </div>
+            <div class="cart-item-actions">
+                <button class="add-to-cart" onclick='addToCart(${JSON.stringify({
+                    id: item.id,
+                    name: item.name,
+                    category: item.category,
+                    price: item.price,
+                    image: item.image
+                })})'>Add to Cart</button>
+                <button class="remove-btn" onclick="removeFromWishlist(${item.id})">Remove</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// ✅ Show / Close Wishlist Modal
+function showWishlist() {
+    renderWishlist();
+    document.getElementById('wishlistModal')?.classList.add('active');
+}
+function closeWishlist() {
+    document.getElementById('wishlistModal')?.classList.remove('active');
+}
+
+// ✅ Initialize
+document.addEventListener('DOMContentLoaded', () => {
+    loadWishlist();
+});
+
+
         // Render categories
         function renderCategories() {
             const grid = document.getElementById('categoriesGrid');
@@ -119,7 +229,7 @@
                 </div>
             `).join('');
         }
-
+        
         // View category - redirect to products page
         function viewCategory(categoryId) {
             window.location.href = `products.html?category=${categoryId}`;

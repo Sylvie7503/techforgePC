@@ -492,31 +492,6 @@
             },
 
 
-            // ❄️ Cooling
-            // { 
-            //     id: 9, 
-            //     name: "NZXT Kraken 360", 
-            //     category: "Cooling", 
-            //     price: 199.99,
-            //     oldPrice: null,
-            //     image: "https://m.media-amazon.com/images/I/71RZ9Rdn1TL._AC_SL1500_.jpg",
-            //     specs: "360mm AIO, RGB, Quiet Performance",
-            //     rating: 4.7,
-            //     reviews: 312,
-            //     badge: null
-            // },
-            // { 
-            //     id: 10, 
-            //     name: "Arctic Liquid Freezer II", 
-            //     category: "Cooling", 
-            //     price: 139.99,
-            //     oldPrice: 169.99,
-            //     image: "https://m.media-amazon.com/images/I/71bH7fItVWL._AC_SL1500_.jpg",
-            //     specs: "280mm AIO, Silent Operation",
-            //     rating: 4.9,
-            //     reviews: 289,
-            //     badge: "Sale"
-            // },
 
             // 💿 SSD
             { 
@@ -1113,16 +1088,117 @@
 
         let currentFilter = 'all';
         let currentSort = 'featured';
+        let wishlist = [];
 
-        // Render products
+        // ✅ Format number with comma and two decimals
+        function formatPrice(value) {
+            return value.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        // ✅ Update wishlist count
+        function updateWishlistCount() {
+            const elements = document.querySelectorAll('#wishlistCount');
+            elements.forEach(el => el.textContent = wishlist.length);
+        }
+
+        // ✅ Save / Load Wishlist
+        function saveWishlist() {
+            localStorage.setItem('techforge_wishlist', JSON.stringify(wishlist));
+        }
+
+        function loadWishlist() {
+            const saved = localStorage.getItem('techforge_wishlist');
+            if (saved) wishlist = JSON.parse(saved);
+            updateWishlistCount();
+        }
+
+        // ✅ Add to wishlist
+        function addToWishlist(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) {
+                showNotification('Product not found!');
+                return;
+            }
+
+            // Check if already in wishlist
+            if (wishlist.some(item => item.id === product.id)) {
+                showNotification(`${product.name} is already in your wishlist!`);
+                return;
+            }
+
+            wishlist.push(product);
+            saveWishlist();
+            updateWishlistCount();
+            showNotification(`${product.name} added to wishlist!`);
+            renderWishlist();
+        }
+
+        // ✅ Remove from wishlist
+        function removeFromWishlist(id) {
+            wishlist = wishlist.filter(item => item.id !== id);
+            saveWishlist();
+            updateWishlistCount();
+            renderWishlist();
+        }
+
+        // ✅ Render Wishlist Modal
+        function renderWishlist() {
+            const modalBody = document.getElementById('wishlistBody');
+            if (!modalBody) return;
+
+            if (wishlist.length === 0) {
+                modalBody.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">💔</div>
+                        <h3>Your wishlist is empty</h3>
+                        <p>Start adding your favorite items!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            modalBody.innerHTML = wishlist.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="${item.image || 'https://via.placeholder.com/80'}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-category">${item.category}</div>
+                        <div class="cart-item-price">₱${formatPrice(item.price || 0)}</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <button class="add-to-cart" onclick='addToCart(${JSON.stringify({
+                            id: item.id,
+                            name: item.name,
+                            category: item.category,
+                            price: item.price,
+                            image: item.image
+                        })})'>Add to Cart</button>
+                        <button class="remove-btn" onclick="removeFromWishlist(${item.id})">Remove</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ✅ Show and close Wishlist modal
+        function showWishlist() {
+            renderWishlist();
+            document.getElementById('wishlistModal')?.classList.add('active');
+        }
+
+        function closeWishlist() {
+            document.getElementById('wishlistModal')?.classList.remove('active');
+        }
+
+        // ✅ Render Products
         function renderProducts(filter = 'all', sort = 'featured') {
             const grid = document.getElementById('productGrid');
             if (!grid) return;
             
             let filtered = filter === 'all' ? [...products] : products.filter(p => p.category === filter);
             
-            // Sort products
-            switch(sort) {
+            switch (sort) {
                 case 'price-low':
                     filtered.sort((a, b) => a.price - b.price);
                     break;
@@ -1149,8 +1225,8 @@
                             <span class="rating-count">(${product.reviews})</span>
                         </div>
                         <div class="product-price">
-                            ₱${product.price.toFixed(2)}
-                            ${product.oldPrice ? `<span class="old-price">₱${product.oldPrice.toFixed(2)}</span>` : ''}
+                            ₱${formatPrice(product.price)}
+                            ${product.oldPrice ? `<span class="old-price">₱${formatPrice(product.oldPrice)}</span>` : ''}
                         </div>
                         <div class="product-actions">
                             <button class="add-to-cart" onclick="addProductToCart(${product.id})">Add to Cart</button>
@@ -1161,14 +1237,14 @@
             `).join('');
         }
 
-        // Add product to cart
+        // ✅ Add product to cart
         function addProductToCart(productId) {
             const product = products.find(p => p.id === productId);
             if (!product) {
                 showNotification('Product not found!');
                 return;
             }
-            
+
             const cartItem = {
                 id: product.id,
                 name: product.name,
@@ -1176,7 +1252,7 @@
                 price: product.price,
                 image: product.image
             };
-            
+
             if (typeof window.addToCart === 'function') {
                 window.addToCart(cartItem);
             } else {
@@ -1184,42 +1260,33 @@
             }
         }
 
-        // Add to wishlist
-        function addToWishlist(productId) {
-            const product = products.find(p => p.id === productId);
-            if (product) {
-                showNotification(`${product.name} added to wishlist!`);
-            }
-        }
-
-        // Filter by category
+        // ✅ Category and sorting filters
         function filterByCategory(category, btn) {
             currentFilter = category;
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            if (btn && btn.classList) btn.classList.add('active');
+            if (btn?.classList) btn.classList.add('active');
             renderProducts(category, currentSort);
         }
 
-        // Sort products
         function sortProducts(sortType) {
             currentSort = sortType;
             renderProducts(currentFilter, sortType);
         }
 
-        // Search functionality
+        // ✅ Search
         const searchInput = document.getElementById('searchInput');
         if (searchInput) {
             searchInput.addEventListener('input', (e) => {
                 const query = e.target.value.toLowerCase();
-                const filtered = products.filter(p => 
-                    p.name.toLowerCase().includes(query) || 
+                const filtered = products.filter(p =>
+                    p.name.toLowerCase().includes(query) ||
                     p.category.toLowerCase().includes(query) ||
                     p.specs.toLowerCase().includes(query)
                 );
-                
+
                 const grid = document.getElementById('productGrid');
                 if (!grid) return;
-                
+
                 grid.innerHTML = filtered.map(product => `
                     <div class="product-card">
                         <div class="product-image">
@@ -1235,8 +1302,8 @@
                                 <span class="rating-count">(${product.reviews})</span>
                             </div>
                             <div class="product-price">
-                                ₱${product.price.toFixed(2)}
-                                ${product.oldPrice ? `<span class="old-price">₱${product.oldPrice.toFixed(2)}</span>` : ''}
+                                ₱${formatPrice(product.price)}
+                                ${product.oldPrice ? `<span class="old-price">₱${formatPrice(product.oldPrice)}</span>` : ''}
                             </div>
                             <div class="product-actions">
                                 <button class="add-to-cart" onclick="addProductToCart(${product.id})">Add to Cart</button>
@@ -1248,5 +1315,8 @@
             });
         }
 
-        // Initialize products
-        renderProducts();
+        // ✅ Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            loadWishlist();
+            renderProducts();
+        });

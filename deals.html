@@ -21,10 +21,13 @@
             </ul>
             <div class="search-cart">
                 <div class="search-box">
-                    <input type="text" placeholder="Search deals..." id="searchInput">
+                    <input type="text" placeholder="Search products..." id="searchInput">
                 </div>
+                <button class="wishlist-btn-header" onclick="showWishlist()">
+                     Wishlist (<span id="wishlistCount">0</span>)
+                </button>
                 <button class="cart-btn" onclick="showCart()">
-                    🛒 Cart (<span id="cartCount">0</span>)
+                     Cart (<span id="cartCount">0</span>)
                 </button>
             </div>
         </nav>
@@ -69,7 +72,16 @@
             <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
-
+    <!-- Wishlist Modal -->
+        <div class="modal" id="wishlistModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>My Wishlist</h2>
+                    <button class="close-btn" onclick="closeWishlist()">×</button>
+                </div>
+                <div class="modal-body" id="wishlistBody"></div>
+            </div>
+        </div>
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -107,6 +119,7 @@
                 </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
             <p>&copy; 2025 TechForge PC. All rights reserved.</p>
         </div>
@@ -121,7 +134,7 @@
                 category: "GPU", 
                 type: "bundle", 
                 oldPrice: 70000.00, 
-                newPrice: 49999.99, 
+                newPrice: 49999.00, 
                 discount: 17, 
                 icon: "🎮",
                 image: "https://directcomputers.co.uk/cdn/shop/files/tots_cfaacb95-7e08-4951-b5c1-3da0b88ac581.jpg?v=1739745080&width=460", 
@@ -135,8 +148,8 @@
                 name: "AMD Ryzen 9 7950X", 
                 category: "CPU", 
                 type: "weekly", 
-                oldPrice: 699.99, 
-                newPrice: 549.99, 
+                oldPrice: 2999.00, 
+                newPrice: 1999.00, 
                 discount: 21, 
                 icon: "🔥", 
                 image: "https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2613900-ryzen-9-9950x.jpg",
@@ -149,8 +162,8 @@
                 name: "Samsung 990 PRO 4TB SSD", 
                 category: "Storage", 
                 type: "weekly", 
-                oldPrice: 249.99, 
-                newPrice: 179.99, 
+                oldPrice: 10999.00, 
+                newPrice: 5999.00, 
                 discount: 28, 
                 icon: "💿", 
                 image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/f4s56gsa4g_500x.jpg?v=1760520700",
@@ -163,8 +176,8 @@
                 name: "Corsair Vengeance RGB 32GB", 
                 category: "RAM", 
                 type: "clearance", 
-                oldPrice: 349.99, 
-                newPrice: 249.99, 
+                oldPrice: 5678.00, 
+                newPrice: 2457.00, 
                 discount: 29, 
                 icon: "💾", 
                 image: "https://assets.corsair.com/image/upload/c_pad,q_85,h_1100,w_1100,f_auto/products/Memory/CMK16GX4M2B3200C16/Gallery/VENG_LPX_BLK_01.webp",
@@ -176,8 +189,8 @@
                 name: "ASUS ROG Strix X670E Elite", 
                 category: "Motherboard", 
                 type: "weekly", 
-                oldPrice: 589.99, 
-                newPrice: 499.99, 
+                oldPrice: 20999.00, 
+                newPrice: 10999.00, 
                 discount: 15, 
                 icon: "🖥️", 
                 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8w67LBHWZ8CgaV-sfIn5q3Zq3LIWvSfkXSA&s ",
@@ -190,8 +203,8 @@
                 name: "NZXT Kraken 360 RGB Elite", 
                 category: "Cooling", 
                 type: "weekly", 
-                oldPrice: 259.99, 
-                newPrice: 199.99, 
+                oldPrice: 2867.00, 
+                newPrice: 1899.00, 
                 discount: 23, 
                 icon: "❄️", 
                 image: "https://imgs.search.brave.com/eTrk6PVmH8R3HI_CZ5yaSf1Qe8gri498WYo0aRPw3rI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/b3ZlcmNsb2NrZXJz/LmNvLnVrL2ltYWdl/cy9DT08tTlpYLTAz/OTA4L2NhOGIyYzZh/OTY1M2IwNDhiOWIx/NDE5ODE1NGY5MDgw/LmpwZw",
@@ -204,8 +217,8 @@
                 name: "AMD Radeon RX 7900 XTX", 
                 category: "GPU", 
                 type: "clearance", 
-                oldPrice: 1099.99, 
-                newPrice: 999.99, 
+                oldPrice: 30999.00, 
+                newPrice: 25999.00, 
                 discount: 9, 
                 icon: "🎯", 
                 image: "https://imgs.search.brave.com/_jNGPsMl566jGV5BEvZPwhQ9VL_Q04LoJgYooiIJalY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4u/bW9zLmNtcy5mdXR1/cmVjZG4ubmV0L2Ft/ZjZzc05qVEh3V25j/WWpxYkZKa1YuanBn",
@@ -217,8 +230,8 @@
                 name: "Intel Core i9-14900K Bundle", 
                 category: "CPU", 
                 type: "bundle", 
-                oldPrice: 699.99, 
-                newPrice: 589.99, 
+                oldPrice: 25999.00, 
+                newPrice: 20500.00, 
                 discount: 16, 
                 icon: "⚡", 
                 image: "https://ecommerce.datablitz.com.ph/cdn/shop/files/19-118-462-01_500x.jpg?v=1760516372",
@@ -231,8 +244,8 @@
                 name: "WD Black SN850X 4TB NVMe", 
                 category: "Storage", 
                 type: "weekly", 
-                oldPrice: 449.99, 
-                newPrice: 349.99, 
+                oldPrice: 10599.00, 
+                newPrice: 7500.00, 
                 discount: 22, 
                 icon: "📀", 
                 image: "https://imgs.search.brave.com/shIluz-xehocAfvGLj3YCzYE5XbXCK9TGKtdCuZHj1g/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pNS53/YWxtYXJ0aW1hZ2Vz/LmNvbS9zZW8vV0Qt/QkxBQ0stNFRCLVNO/ODUwWC1OVk1lLUlu/dGVybmFsLUdhbWlu/Zy1TU0QtU29saWQt/U3RhdGUtRHJpdmUt/R2VuNC1QQ0llLU0t/Mi0yMjgwLVVwLXRv/LTctMzAwLU1CLXMt/V0RTNDAwVDJYMEVf/MGE1MDJhYzItN2Iy/ZC00MjEyLTgxN2Mt/MGE0OTA5Mzk0OTA4/LmQ3ZDc2YzAzMzhl/YzQ1MzNkY2NjMTBm/ZDE0ZDdiMjI2LnBu/Zz9vZG5IZWlnaHQ9/NTczJm9kbldpZHRo/PTU3MyZvZG5CZz1G/RkZGRkY",
@@ -242,10 +255,117 @@
             }
         ];
 
+
+
+        let wishlist = [];
+
+        // ✅ Format price with commas
+        function formatPrice(value) {
+            return value.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        // ✅ Load and Save Wishlist
+        function loadWishlist() {
+            const saved = localStorage.getItem('techforge_wishlist');
+            if (saved) wishlist = JSON.parse(saved);
+            updateWishlistCount();
+        }
+        function saveWishlist() {
+            localStorage.setItem('techforge_wishlist', JSON.stringify(wishlist));
+        }
+
+        // ✅ Update Wishlist Count
+        function updateWishlistCount() {
+            const count = wishlist.length;
+            document.querySelectorAll('#wishlistCount').forEach(el => (el.textContent = count));
+        }
+
+        // ✅ Add Deal to Wishlist
+        function addToWishlist(dealId) {
+            const deal = deals.find(d => d.id === dealId);
+            if (!deal) {
+                showNotification('Deal not found!');
+                return;
+            }
+
+            if (wishlist.some(item => item.id === deal.id)) {
+                showNotification(`${deal.name} is already in your wishlist!`);
+                return;
+            }
+
+            wishlist.push(deal);
+            saveWishlist();
+            updateWishlistCount();
+            showNotification(`${deal.name} added to wishlist!`);
+            renderWishlist();
+        }
+
+        // ✅ Remove Deal from Wishlist
+        function removeFromWishlist(id) {
+            wishlist = wishlist.filter(item => item.id !== id);
+            saveWishlist();
+            updateWishlistCount();
+            renderWishlist();
+        }
+
+        // ✅ Render Wishlist Modal
+        function renderWishlist() {
+            const modalBody = document.getElementById('wishlistBody');
+            if (!modalBody) return;
+
+            if (wishlist.length === 0) {
+                modalBody.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">💔</div>
+                        <h3>Your wishlist is empty</h3>
+                        <p>Start adding your favorite items!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            modalBody.innerHTML = wishlist.map(item => `
+                <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="${item.image || 'https://via.placeholder.com/80'}" alt="${item.name}">
+                    </div>
+                    <div class="cart-item-info">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-category">${item.category}</div>
+                        <div class="cart-item-price">₱${formatPrice(item.price || 0)}</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <button class="add-to-cart" onclick='addToCart(${JSON.stringify({
+                            id: item.id,
+                            name: item.name,
+                            category: item.category,
+                            price: item.price,
+                            image: item.image
+                        })})'>Add to Cart</button>
+                        <button class="remove-btn" onclick="removeFromWishlist(${item.id})">Remove</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // ✅ Show / Close Wishlist Modal
+        function showWishlist() {
+            renderWishlist();
+            document.getElementById('wishlistModal')?.classList.add('active');
+        }
+
+        function closeWishlist() {
+            document.getElementById('wishlistModal')?.classList.remove('active');
+        }
+
+        // ==============================
+        // DEALS CODE (Original)
+        // ==============================
+
         // Compute absolute endsAt timestamps
-        deals.forEach(d => { 
-            if (d.endsInSeconds && !d.endsAt) 
-                d.endsAt = Date.now() + (d.endsInSeconds * 1000); 
+        deals.forEach(d => {
+            if (d.endsInSeconds && !d.endsAt)
+                d.endsAt = Date.now() + d.endsInSeconds * 1000;
         });
 
         // Add deal to cart
@@ -256,9 +376,9 @@
                 return;
             }
 
-            if (deal.endsAt && Date.now() >= deal.endsAt) { 
-                showNotification(`${deal.name} has expired and can't be added.`); 
-                return; 
+            if (deal.endsAt && Date.now() >= deal.endsAt) {
+                showNotification(`${deal.name} has expired and can't be added.`);
+                return;
             }
 
             const cartItem = {
@@ -266,39 +386,31 @@
                 name: deal.name,
                 category: deal.category,
                 price: deal.newPrice,
-                icon: deal.icon
+                image: deal.image
             };
-            
-            // Use the global addToCart function
+
             if (typeof window.addToCart === 'function') {
                 window.addToCart(cartItem);
-                
-                const saved = deal.oldPrice ? (deal.oldPrice - deal.newPrice).toFixed(2) : null;
+                const saved = deal.oldPrice
+                    ? (deal.oldPrice - deal.newPrice).toFixed(2)
+                    : null;
                 if (saved) {
-                    showNotification(`${deal.name} added to cart! You saved ₱${saved}`);
+                    showNotification(`${deal.name} added to cart! You saved ₱${formatPrice(saved)}`);
                 }
             } else {
                 showNotification('Cart system not available. Please refresh the page.');
             }
         }
 
-        // Add to wishlist
-        function addToWishlist(dealId) {
-            const deal = deals.find(d => d.id === dealId);
-            if (deal) {
-                showNotification(`${deal.name} added to wishlist!`);
-            }
-        }
-
         // Countdown formatting
         function formatCountdown(ms) {
             if (ms <= 0) return 'Expired';
-            const s = Math.floor(ms/1000);
+            const s = Math.floor(ms / 1000);
             const days = Math.floor(s / 86400);
             const hours = Math.floor((s % 86400) / 3600);
             const mins = Math.floor((s % 3600) / 60);
             const secs = s % 60;
-            const pad = n => String(n).padStart(2,'0');
+            const pad = n => String(n).padStart(2, '0');
             if (days > 0) return `${days}d ${pad(hours)}h ${pad(mins)}m ${pad(secs)}s`;
             if (hours > 0) return `${hours}h ${pad(mins)}m ${pad(secs)}s`;
             return `${mins}m ${pad(secs)}s`;
@@ -309,30 +421,31 @@
             const featured = deals.find(deal => deal.featured) || deals[0];
             const container = document.getElementById('featuredDeal');
             if (!container) return;
-            
+
             container.innerHTML = `
                 <div class="featured-deal-image">
-                    ${featured.image 
+                    ${featured.image
                         ? `<img src="${featured.image}" alt="${featured.name}">`
-                        : `<span class="deal-image-icon">${featured.icon}</span>`
-                    }
+                        : `<span class="deal-image-icon">${featured.icon}</span>`}
                 </div>
                 <div class="featured-deal-content">
                     ${featured.badge ? `<span class="featured-badge">${featured.badge}</span>` : ''}
                     <h2 class="featured-title">${featured.name}</h2>
                     <p class="featured-description">${featured.description}</p>
                     <div class="featured-prices">
-                        <span class="featured-price-new">₱${featured.newPrice.toFixed(2)}</span>
-                        ${featured.oldPrice ? `<span class="featured-price-old">₱${featured.oldPrice.toFixed(2)}</span>` : ''}
+                        <span class="featured-price-new">₱${formatPrice(featured.newPrice)}</span>
+                        ${featured.oldPrice ? `<span class="featured-price-old">₱${formatPrice(featured.oldPrice)}</span>` : ''}
                         <span class="featured-discount">-${featured.discount}%</span>
                     </div>
                     <div class="deal-timer-card">
                         <div class="timer-text">⏰ Deal ends in:</div>
-                        <div class="timer-value" data-dealid="${featured.id}">${featured.endsAt ? formatCountdown(featured.endsAt - Date.now()) : 'Limited Time'}</div>
+                        <div class="timer-value" data-dealid="${featured.id}">
+                            ${featured.endsAt ? formatCountdown(featured.endsAt - Date.now()) : 'Limited Time'}
+                        </div>
                     </div>
                     <div class="deal-actions">
                         <button class="deal-btn btn-add-cart" onclick="addDealToCart(${featured.id})">Add to Cart</button>
-                        <button class="deal-btn btn-wishlist" onclick="addToWishlist(${featured.id})">♡</button>
+                        <button class="deal-btn btn-wishlist" onclick="addToWishlist(${featured.id})">Wishlist</button>
                     </div>
                 </div>
             `;
@@ -342,95 +455,49 @@
         function renderDeals(filter = 'all') {
             const grid = document.getElementById('dealsGrid');
             if (!grid) return;
-            
+
             let filtered = filter === 'all' ? deals.slice() : deals.filter(d => d.type === filter);
 
-            grid.innerHTML = filtered.map(deal => `
+            grid.innerHTML = filtered
+                .map(
+                    deal => `
                 <div class="deal-card" id="deal-${deal.id}">
                     ${deal.badge ? `<div class="deal-badge">${deal.badge}</div>` : ''}
                     <div class="deal-image">
-                        ${deal.image 
+                        ${deal.image
                             ? `<img src="${deal.image}" alt="${deal.name}">`
-                            : `<span class="deal-image-icon">${deal.icon}</span>`
-                        }
+                            : `<span class="deal-image-icon">${deal.icon}</span>`}
                     </div>
                     <div class="deal-info">
                         <div class="deal-category">${deal.category}</div>
                         <h3 class="deal-title">${deal.name}</h3>
                         <p class="deal-description">${deal.description}</p>
                         <div class="deal-prices">
-                            <span class="deal-price-new">₱${deal.newPrice.toFixed(2)}</span>
-                            ${deal.oldPrice ? `<span class="deal-price-old">₱${deal.oldPrice.toFixed(2)}</span>` : ''}
+                            <span class="deal-price-new">₱${formatPrice(deal.newPrice)}</span>
+                            ${deal.oldPrice ? `<span class="deal-price-old">₱${formatPrice(deal.oldPrice)}</span>` : ''}
                             <span class="deal-discount">-${deal.discount}%</span>
                         </div>
                         <div class="deal-timer-card">
                             <div class="timer-text">⏰ Time left:</div>
-                            <div class="timer-value" data-dealid="${deal.id}">${deal.endsAt ? formatCountdown(deal.endsAt - Date.now()) : 'Limited Time'}</div>
+                            <div class="timer-value" data-dealid="${deal.id}">
+                                ${deal.endsAt ? formatCountdown(deal.endsAt - Date.now()) : 'Limited Time'}
+                            </div>
                         </div>
                         <div class="deal-actions">
                             <button class="deal-btn btn-add-cart" onclick="addDealToCart(${deal.id})">Add to Cart</button>
-                            <button class="deal-btn btn-wishlist" onclick="addToWishlist(${deal.id})">♡</button>
+                            <button class="deal-btn btn-wishlist" onclick="addToWishlist(${deal.id})">Wishlist</button>
                         </div>
                     </div>
                 </div>
-            `).join('');
+            `
+                )
+                .join('');
 
             updateExpiredStates();
         }
 
-        // Filter deals
-        function filterDeals(type, btn) {
-            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
-            if (btn && btn.classList) btn.classList.add('active');
-            renderDeals(type);
-        }
-
-        // Search functionality
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                const q = (e.target.value || '').toLowerCase();
-                const filtered = deals.filter(d =>
-                    d.name.toLowerCase().includes(q) ||
-                    d.category.toLowerCase().includes(q) ||
-                    (d.description || '').toLowerCase().includes(q)
-                );
-                const grid = document.getElementById('dealsGrid');
-                if (!grid) return;
-                
-                grid.innerHTML = filtered.map(deal => `
-                    <div class="deal-card" id="deal-${deal.id}">
-                        ${deal.badge ? `<div class="deal-badge">${deal.badge}</div>` : ''}
-                        <div class="deal-image">
-                            <span class="deal-image-icon">${deal.icon}</span>
-                        </div>
-                        <div class="deal-info">
-                            <div class="deal-category">${deal.category}</div>
-                            <h3 class="deal-title">${deal.name}</h3>
-                            <p class="deal-description">${deal.description}</p>
-                            <div class="deal-prices">
-                                <span class="deal-price-new">₱${deal.newPrice.toFixed(2)}</span>
-                                ${deal.oldPrice ? `<span class="deal-price-old">₱${deal.oldPrice.toFixed(2)}</span>` : ''}
-                                <span class="deal-discount">-${deal.discount}%</span>
-                            </div>
-                            <div class="deal-timer-card">
-                                <div class="timer-text">⏰ Time left:</div>
-                                <div class="timer-value" data-dealid="${deal.id}">${deal.endsAt ? formatCountdown(deal.endsAt - Date.now()) : 'Limited Time'}</div>
-                            </div>
-                            <div class="deal-actions">
-                                <button class="deal-btn btn-add-cart" onclick="addDealToCart(${deal.id})">Add to Cart</button>
-                                <button class="deal-btn btn-wishlist" onclick="addToWishlist(${deal.id})">♡</button>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-                updateExpiredStates();
-            });
-        }
-
         // Expiration handling
         let countdownIntervalId = null;
-        
         function startCountdowns() {
             stopCountdowns();
             countdownIntervalId = setInterval(() => {
@@ -451,23 +518,20 @@
                 updateExpiredStates();
             }, 1000);
         }
-        
-        function stopCountdowns() { 
-            if (countdownIntervalId) { 
-                clearInterval(countdownIntervalId); 
-                countdownIntervalId = null; 
-            } 
+        function stopCountdowns() {
+            if (countdownIntervalId) {
+                clearInterval(countdownIntervalId);
+                countdownIntervalId = null;
+            }
         }
-        
-        function disableDealButtons(dealId){
+        function disableDealButtons(dealId) {
             document.querySelectorAll(`.btn-add-cart[onclick="addDealToCart(${dealId})"]`).forEach(btn => {
                 btn.disabled = true;
                 btn.style.opacity = 0.6;
                 btn.textContent = 'Expired';
             });
         }
-        
-        function updateExpiredStates(){
+        function updateExpiredStates() {
             const now = Date.now();
             deals.forEach(d => {
                 if (d.endsAt && now >= d.endsAt) {
@@ -478,32 +542,14 @@
             });
         }
 
-        // Toggle countdown timers
-        const enableTimers = document.getElementById('enableTimers');
-        if (enableTimers) {
-            enableTimers.addEventListener('change', function(e){
-                if (e.target.checked) { 
-                    startCountdowns(); 
-                } else { 
-                    stopCountdowns(); 
-                    document.querySelectorAll('.timer-value').forEach(tv => { 
-                        const id = tv.dataset.dealid; 
-                        const d = deals.find(x => String(x.id) === String(id)); 
-                        if (d && d.endsAt) {
-                            const remaining = d.endsAt - Date.now();
-                            tv.textContent = remaining > 0 ? formatCountdown(remaining) : 'Expired';
-                        }
-                    }); 
-                }
-            });
-        }
-
         // Initialize
-        renderFeaturedDeal();
-        renderDeals();
-        if (document.getElementById('enableTimers')?.checked) {
-            startCountdowns();
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFeaturedDeal();
+            renderDeals();
+            loadWishlist();
+            if (document.getElementById('enableTimers')?.checked) startCountdowns();
+        });
+
     </script>
 
     <!-- Load cart.js AFTER the page content -->

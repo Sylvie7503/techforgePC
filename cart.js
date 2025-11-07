@@ -1,6 +1,11 @@
-// cart.js - Simple Working Cart System with Checkout Form
+// cart.js - Simple Working Cart System with Formatted Prices & Images
 
 let cart = [];
+
+// ✅ Format number with commas and 2 decimals
+function formatPrice(value) {
+    return value.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
 
 // Load cart from localStorage
 function loadCart() {
@@ -40,7 +45,7 @@ function addToCart(item) {
         return;
     }
 
-    // Check if item exists
+    // Check if item already exists
     const existing = cart.find(i => i.id === item.id && i.name === item.name);
     
     if (existing) {
@@ -86,17 +91,13 @@ function updateCartItemQuantity(cartId, quantity) {
 function showCart() {
     renderCartModal();
     const modal = document.getElementById('cartModal');
-    if (modal) {
-        modal.classList.add('active');
-    }
+    if (modal) modal.classList.add('active');
 }
 
 // Close cart modal
 function closeCart() {
     const modal = document.getElementById('cartModal');
-    if (modal) {
-        modal.classList.remove('active');
-    }
+    if (modal) modal.classList.remove('active');
 }
 
 // Render cart modal
@@ -124,17 +125,22 @@ function renderCartModal() {
         <div class="cart-items">
             ${cart.map(item => `
                 <div class="cart-item">
+                    <div class="cart-item-image">
+                        <img src="${item.image || 'https://via.placeholder.com/80'}" alt="${item.name}" class="cart-img">
+                    </div>
                     <div class="cart-item-info">
                         <div class="cart-item-name">${item.name}</div>
                         <div class="cart-item-category">${item.category || 'Product'}</div>
                         <div class="cart-item-quantity">
                             <button class="qty-btn" onclick="updateCartItemQuantity(${item.cartId}, ${(item.quantity || 1) - 1})">-</button>
-                            <input type="number" class="qty-input" value="${item.quantity || 1}" min="1" 
+                            <input type="number" class="qty-input" value="${item.quantity || 1}" min="1"
                                    onchange="updateCartItemQuantity(${item.cartId}, parseInt(this.value) || 1)">
                             <button class="qty-btn" onclick="updateCartItemQuantity(${item.cartId}, ${(item.quantity || 1) + 1})">+</button>
                         </div>
                     </div>
-                    <div class="cart-item-price">₱${((item.price || 0) * (item.quantity || 1)).toFixed(2)}</div>
+                    <div class="cart-item-price">
+                        ₱${formatPrice((item.price || 0) * (item.quantity || 1))}
+                    </div>
                     <button class="remove-btn" onclick="removeFromCart(${item.cartId})">Remove</button>
                 </div>
             `).join('')}
@@ -143,19 +149,19 @@ function renderCartModal() {
         <div class="cart-total">
             <div class="cart-total-row">
                 <span>Subtotal:</span>
-                <span>₱${subtotal.toFixed(2)}</span>
+                <span>₱${formatPrice(subtotal)}</span>
             </div>
             <div class="cart-total-row">
                 <span>Tax (8%):</span>
-                <span>₱${tax.toFixed(2)}</span>
+                <span>₱${formatPrice(tax)}</span>
             </div>
             <div class="cart-total-row">
                 <span>Shipping:</span>
-                <span>${shipping === 0 ? 'FREE' : '₱' + shipping.toFixed(2)}</span>
+                <span>${shipping === 0 ? 'FREE' : '₱' + formatPrice(shipping)}</span>
             </div>
             <div class="cart-total-row total">
                 <span>Total:</span>
-                <span>₱${total.toFixed(2)}</span>
+                <span>₱${formatPrice(total)}</span>
             </div>
         </div>
 
@@ -208,7 +214,9 @@ function renderCartModal() {
                 </div>
             </div>
 
-            <button class="checkout-btn" onclick="processCheckout(${total})">Place Order - ₱${total.toFixed(2)}</button>
+            <button class="checkout-btn" onclick="processCheckout(${total})">
+                Place Order - ₱${formatPrice(total)}
+            </button>
         </div>
     `;
 }
@@ -225,7 +233,7 @@ function processCheckout(total) {
         }
     }
 
-    showNotification(`Order placed successfully! Total: ₱${total.toFixed(2)}`);
+    showNotification(`Order placed successfully! Total: ₱${formatPrice(total)}`);
     cart = [];
     saveCart();
     updateCartCount();
@@ -234,7 +242,6 @@ function processCheckout(total) {
 
 // Show notification
 function showNotification(message) {
-    // Remove existing notifications
     document.querySelectorAll('.notification').forEach(n => n.remove());
     
     const notif = document.createElement('div');
@@ -242,24 +249,17 @@ function showNotification(message) {
     notif.textContent = message;
     document.body.appendChild(notif);
     
-    setTimeout(() => {
-        if (notif.parentNode) {
-            notif.parentNode.removeChild(notif);
-        }
-    }, 3000);
+    setTimeout(() => notif.remove(), 3000);
 }
 
 // Initialize when page loads
 document.addEventListener('DOMContentLoaded', function() {
     loadCart();
     
-    // Close modal when clicking outside
     const modal = document.getElementById('cartModal');
     if (modal) {
         modal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeCart();
-            }
+            if (e.target === this) closeCart();
         });
     }
 });

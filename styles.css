@@ -799,9 +799,11 @@
             gap: 0.8rem;
         }
 
+        /* --- Add to Cart Button --- */
+       /* --- Add to Cart Button --- */
         .add-to-cart {
             flex: 1;
-            padding: 0.9rem;
+            padding: 0.8rem 1rem;
             background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
             border: none;
             border-radius: 8px;
@@ -810,6 +812,7 @@
             cursor: pointer;
             transition: all 0.3s;
             font-size: 0.95rem;
+            height: 42px;
         }
 
         .add-to-cart:hover {
@@ -939,20 +942,33 @@
             margin-right: 1rem;
         }
 
+        /* --- Remove Button  --- */
         .remove-btn {
+            flex: 1;
+            padding: 0.8rem 1rem;
             background: rgba(255, 50, 50, 0.2);
             border: 1px solid rgba(255, 50, 50, 0.3);
-            color: #ff3232;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            color: white;
+            border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 600;
+            font-size: 0.95rem;
+            height: 42px;
         }
 
         .remove-btn:hover {
             background: rgba(255, 50, 50, 0.4);
-            transform: scale(1.05);
+            transform: translateY(-2px);
+        }
+
+        /* --- Container for Buttons (Wishlist Alignment) --- */
+        .cart-item-actions {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 0.5rem;
         }
 
         .cart-total {
@@ -1592,9 +1608,11 @@
             margin: 0.8rem 0;
         }
 
-        .add-to-cart-btn {
-            width: 100%;
-            padding: 0.8rem;
+        /* --- Add to Cart Button --- */
+        /* --- Add to Cart Button --- */
+        .add-to-cart {
+            flex: 1;
+            padding: 0rem 1rem;
             background: linear-gradient(135deg, #00d4ff 0%, #00ff88 100%);
             border: none;
             border-radius: 8px;
@@ -1602,12 +1620,13 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            height: 42px;
         }
 
-        .add-to-cart-btn:hover {
+        .add-to-cart:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 212, 255, 0.5);
         }
 
         .notification {
@@ -2368,4 +2387,52 @@
 #cartModal.active { display:flex !important; align-items:center; justify-content:center; }
 #cartModal { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:20000; padding:1rem; }
 /* end appended cart styles */
+
+/* cart image */
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #333;
+  padding: 10px 0;
+}
+.cart-item-image img {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.cart-item-info {
+  flex: 1;
+}
+
+
+.wishlist-btn-header {
+    background: linear-gradient(135deg, #ff0080 0%, #ff8c00 100%);
+    border: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.wishlist-btn-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 0, 128, 0.4);
+}
+
+/* --- Container for Buttons  --- */
+.cart-item-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 0.5rem;
+}
 
