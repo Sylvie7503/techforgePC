@@ -542,11 +542,34 @@
             });
         }
 
+        // Filter deals
+        
+        function filterDeals(type, btn) {
+            // remove active state from all filter buttons
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+
+            // add active state to the clicked button (if provided)
+            if (btn && btn.classList) btn.classList.add('active');
+
+            // render deals with the selected filter
+            renderDeals(type);
+        }
+
+        // optional: allow calling filterDeals programmatically and set initial active tab
+        function setInitialDealFilter(type = 'all') {
+            const btn = Array.from(document.querySelectorAll('.filter-tab'))
+                .find(b => b.getAttribute('onclick')?.includes(`filterDeals('${type}'`) || b.textContent.toLowerCase().includes(type));
+            if (btn) btn.classList.add('active');
+            renderDeals(type);
+        }
+
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             renderFeaturedDeal();
-            renderDeals();
+            setInitialDealFilter('all'); 
             loadWishlist();
+
             if (document.getElementById('enableTimers')?.checked) startCountdowns();
         });
 
