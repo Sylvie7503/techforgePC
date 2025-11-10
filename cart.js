@@ -2,9 +2,21 @@
 
 let cart = [];
 
+// Replace previous tax constant (8%) with 12%
+const TAX_RATE = 0.12; // 12% VAT
+
+// ✅ NEW: Track discount via voucher
+let isDiscountApplied = false;
+let discountCode = "";
+
 // ✅ Format number with commas and 2 decimals
 function formatPrice(value) {
     return value.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+// ✅ Apply 20% discount if active
+function applyDiscount(amount) {
+    return isDiscountApplied ? amount * 0.8 : amount;
 }
 
 // Load cart from localStorage
@@ -116,9 +128,15 @@ function renderCartModal() {
         return;
     }
 
+    // Totals before discount
     const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
-    const tax = subtotal * 0.08;
+    const tax = subtotal * TAX_RATE;
     const shipping = subtotal > 50 ? 0 : 9.99;
+
+    // Apply discount if voucher is valid
+    const discountedSubtotal = applyDiscount(subtotal);
+    const discountedTax = applyDiscount(tax);
+    const discountedTotal = discountedSubtotal + discountedTax + shipping;
     const total = subtotal + tax + shipping;
 
     modalBody.innerHTML = `
@@ -146,22 +164,51 @@ function renderCartModal() {
             `).join('')}
         </div>
 
+        <!-- ✅ Voucher Input -->
+        <div class="voucher-section" style="margin:15px 0;padding:10px;background:#222;border-radius:6px;">
+            <label style="color:#fff;">Voucher Code (PWD/Senior Discount)</label>
+            <div style="display:flex;gap:8px;margin-top:6px;">
+                <input type="text" id="voucherCode" placeholder="Enter code (e.g. PWD20 or SENIOR20)" 
+                    value="${discountCode}" style="flex:1;padding:6px 8px;border-radius:4px;border:1px solid #555;background:#111;color:#fff;">
+                <button onclick="applyVoucher()" style="background:#00d4ff;border:none;padding:6px 12px;border-radius:4px;color:#000;font-weight:bold;">Apply</button>
+            </div>
+        </div>
+
         <div class="cart-total">
             <div class="cart-total-row">
                 <span>Subtotal:</span>
-                <span>₱${formatPrice(subtotal)}</span>
+                <span style="${isDiscountApplied ? 'text-decoration:line-through;color:#aaa;' : ''}">
+                    ₱${formatPrice(subtotal)}
+                </span>
             </div>
+
+            ${isDiscountApplied ? `
             <div class="cart-total-row">
-                <span>Tax (8%):</span>
-                <span>₱${formatPrice(tax)}</span>
+                <span>Discounted Subtotal:</span>
+                <span style="color:#00ff99;">₱${formatPrice(discountedSubtotal)}</span>
+            </div>` : ''}
+
+            <div class="cart-total-row">
+                <span>Tax (12%):</span>
+                <span style="${isDiscountApplied ? 'text-decoration:line-through;color:#aaa;' : ''}">
+                    ₱${formatPrice(tax)}
+                </span>
             </div>
+
+            ${isDiscountApplied ? `
+            <div class="cart-total-row">
+                <span>Discounted Tax:</span>
+                <span style="color:#00ff99;">₱${formatPrice(discountedTax)}</span>
+            </div>` : ''}
+
             <div class="cart-total-row">
                 <span>Shipping:</span>
                 <span>${shipping === 0 ? 'FREE' : '₱' + formatPrice(shipping)}</span>
             </div>
+
             <div class="cart-total-row total">
                 <span>Total:</span>
-                <span>₱${formatPrice(total)}</span>
+                <span>₱${formatPrice(isDiscountApplied ? discountedTotal : total)}</span>
             </div>
         </div>
 
@@ -214,11 +261,29 @@ function renderCartModal() {
                 </div>
             </div>
 
-            <button class="checkout-btn" onclick="processCheckout(${total})">
-                Place Order - ₱${formatPrice(total)}
+            <button class="checkout-btn" onclick="processCheckout(${isDiscountApplied ? discountedTotal : total})">
+                Place Order - ₱${formatPrice(isDiscountApplied ? discountedTotal : total)}
             </button>
         </div>
     `;
+}
+
+// ✅ NEW: Voucher code validation
+function applyVoucher() {
+    const input = document.getElementById('voucherCode');
+    if (!input) return;
+    const code = input.value.trim().toUpperCase();
+
+    if (code === "PWD20" || code === "SENIOR20") {
+        isDiscountApplied = true;
+        discountCode = code;
+        showNotification("20% discount applied!");
+    } else {
+        isDiscountApplied = false;
+        discountCode = "";
+        showNotification("Invalid or expired voucher code.");
+    }
+    renderCartModal();
 }
 
 // Process checkout with validation
@@ -271,3 +336,4 @@ window.updateCartItemQuantity = updateCartItemQuantity;
 window.showCart = showCart;
 window.closeCart = closeCart;
 window.showNotification = showNotification;
+window.applyVoucher = applyVoucher;
