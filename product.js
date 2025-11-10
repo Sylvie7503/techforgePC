@@ -1,4 +1,4 @@
- // All Products Data (using images instead of icons)
+// All Products Data (using images instead of icons)
         const products = [
             // 🧠 CPU
             { 
@@ -1082,6 +1082,8 @@
             
 
         ];
+
+        window.PRODUCTS = products;
 
             
             
