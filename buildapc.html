@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Build A PC - TechForge PC</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* minimal scoped styles so page renders even if styles.css is not ready */
+    :root{--muted:#9aa0a6;--accent:#2eb82e}
+    html,body{height:100%;margin:0;background:#0f1112;color:#e6e9eb;font-family:Segoe UI,Roboto,Arial}
+    .container{max-width:1400px;margin:18px auto;display:grid;grid-template-columns:320px 1fr 420px;gap:18px;padding:18px}
+    .panel{background:#151718;border-radius:10px;padding:16px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+    .slot{display:flex;justify-content:space-between;align-items:center;padding:12px;background:#121314;border-radius:8px;margin-bottom:10px}
+    .parts{margin-top:12px;display:flex;flex-direction:column;gap:12px;max-height:640px;overflow:auto}
+    .part{display:flex;gap:12px;align-items:center;padding:12px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border:1px solid rgba(255,255,255,0.02)}
+    .thumb{width:72px;height:64px;background:#0b0b0b;border-radius:8px;display:flex;align-items:center;justify-content:center}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#dfe6e8;padding:8px 10px;border-radius:8px;cursor:pointer}
+    .btn.select{background:linear-gradient(90deg,var(--accent),#019b01);border:0;color:#071507}
+    .bottom-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;width:calc(100% - 80px);max-width:1400px;background:rgba(0,0,0,0.55);border-radius:12px;padding:12px 18px;display:flex;justify-content:space-between;align-items:center}
+    @media (max-width:1000px){.container{grid-template-columns:1fr}.bottom-bar{width:calc(100% - 36px)}}
+  </style>
+</head>
+<body>
+  <!-- REPLACE the current empty header with this navbar (includes wishlist & cart) -->
+  <header class="site-nav" role="banner" style="background:#0b0b0b;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.02)">
+    <div class="nav-inner" style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px">
+      <div style="display:flex;align-items:center;gap:18px">
+        <button id="menuBtn" aria-label="Menu" class="nav-icon" style="background:transparent;border:0;color:inherit;cursor:pointer">☰</button>
+        <a class="logo" href="index.html" style="color:inherit;text-decoration:none;font-weight:700;font-size:1.05rem">⚡ TechForge PC</a>
+        <nav aria-label="Main navigation" style="display:flex;gap:12px;align-items:center;margin-left:8px">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="products.html">Products</a>
+          <a class="nav-link" href="buildapc.html" style="font-weight:700">Build A PC</a>
+          <a class="nav-link" href="categories.html">Categories</a>
+        </nav>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:12px">
+        <button id="wishlistBtn" class="nav-action" aria-label="Wishlist" title="Wishlist">
+          <span style="font-size:18px">♡</span>
+          <span id="wishlistCount" style="margin-left:6px;font-weight:700;color:var(--muted)">0</span>
+        </button>
+
+        <button id="cartBtn" class="nav-action" aria-label="Cart" title="Cart">
+          <span style="font-size:18px">🛒</span>
+          <span id="cartCount" style="margin-left:6px;font-weight:700;color:var(--muted)">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container" role="application">
+    <!-- LEFT: HOW TO BUILD A PC (replaces Build Overview) -->
+    <aside class="panel left" aria-label="How to build a PC">
+      <h2 style="margin:0 0 12px 0">How to Build a PC</h2>
+
+      <div id="howToBuild" style="line-height:1.45;color:var(--muted);font-size:14px">
+        <ol>
+          <li><strong>Choose a Processor (CPU)</strong>
+            <div class="howto-step">Pick a CPU first — it determines the socket and performance tier. Use "Select" on Processor to view available CPUs.</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('Processor')">Show Processors</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Choose a Motherboard</strong>
+            <div class="howto-step">Select a motherboard compatible with the CPU socket and features (RAM slots, M.2, USB ports).</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('Motherboard')">Show Motherboards</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Pick Memory (RAM)</strong>
+            <div class="howto-step">Choose RAM capacity and speed supported by the motherboard (eg. DDR4/DDR5).</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('Memory')">Show Memory</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Graphics Card (GPU)</strong>
+            <div class="howto-step">If you game or do GPU work, pick a GPU that fits your budget and case size.</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('GPU')">Show GPUs</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Storage</strong>
+            <div class="howto-step">Select an SSD or HDD depending on speed and capacity needs. NVMe SSDs are fastest.</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('Storage')">Show Storage</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Cooling & Power</strong>
+            <div class="howto-step">Pick cooling (air/liquid) and a PSU with enough wattage for your components.</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('Cooling')">Show Cooling</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Review & Add to Cart</strong>
+            <div class="howto-step">After selecting items, review the build on the right and click "ADD TO CART" to save or purchase.</div>
+          </li>
+        </ol>
+
+        <div style="margin-top:14px;color:var(--muted);font-size:13px">
+          Tip: Start with the CPU and motherboard to ensure socket compatibility.
+        </div>
+      </div>
+    </aside>
+
+    <main class="panel middle" aria-label="Selected components">
+      <h3 style="margin:0 0 12px 0">Your Build</h3>
+
+      <div id="slots">
+        <div class="builder-slot" data-slot="Processor">
+          <div class="slot-left">
+            <img id="slot-Processor-img" class="slot-thumb" src="" alt="" hidden>
+            <div class="slot-meta">
+              <strong id="slot-Processor-name">Processor</strong>
+              <div id="slot-Processor" class="slot-desc" style="color:var(--muted)">Select processor</div>
+              <div id="slot-Processor-desc" class="slot-desc"></div>
+            </div>
+          </div>
+          <div><button class="selection" onclick="jumpToCategory('Processor')">Select</button></div>
+        </div>
+
+        <div class="builder-slot" data-slot="Motherboard">
+          <div class="slot-left">
+            <img id="slot-Motherboard-img" class="slot-thumb" src="" alt="" hidden>
+            <div class="slot-meta">
+              <strong id="slot-Motherboard-name">Motherboard</strong>
+              <div id="slot-Motherboard" class="slot-desc" style="color:var(--muted)">Select motherboard</div>
+              <div id="slot-Motherboard-desc" class="slot-desc"></div>
+            </div>
+          </div>
+          <div><button class="selection" onclick="jumpToCategory('Motherboard')">Select</button></div>
+        </div>
+
+        <div class="builder-slot" data-slot="Memory">
+          <div class="slot-left">
+            <img id="slot-Memory-img" class="slot-thumb" src="" alt="" hidden>
+            <div class="slot-meta">
+              <strong id="slot-Memory-name">Memory</strong>
+              <div id="slot-Memory" class="slot-desc" style="color:var(--muted)">Select memory</div>
+              <div id="slot-Memory-desc" class="slot-desc"></div>
+            </div>
+          </div>
+          <div><button class="selection" onclick="jumpToCategory('Memory')">Select</button></div>
+        </div>
+
+        <div class="builder-slot" data-slot="GPU">
+          <div class="slot-left">
+            <img id="slot-GPU-img" class="slot-thumb" src="" alt="" hidden>
+            <div class="slot-meta">
+              <strong id="slot-GPU-name">Graphics Card</strong>
+              <div id="slot-GPU" class="slot-desc" style="color:var(--muted)">Select GPU</div>
+              <div id="slot-GPU-desc" class="slot-desc"></div>
+            </div>
+          </div>
+          <div><button class="selection" onclick="jumpToCategory('GPU')">Select</button></div>
+        </div>
+
+        <div class="builder-slot" data-slot="Storage">
+          <div class="slot-left">
+            <img id="slot-Storage-img" class="slot-thumb" src="" alt="" hidden>
+            <div class="slot-meta">
+              <strong id="slot-Storage-name">Storage</strong>
+              <div id="slot-Storage" class="slot-desc" style="color:var(--muted)">Select storage</div>
+              <div id="slot-Storage-desc" class="slot-desc"></div>
+            </div>
+          </div>
+          <div><button class="selection" onclick="jumpToCategory('Storage')">Select</button></div>
+        </div>
+
+        <div class="builder-slot" data-slot="Cooling">
+          <div class="slot-left">
+            <img id="slot-Cooling-img" class="slot-thumb" src="" alt="" hidden>
+            <div class="slot-meta">
+              <strong id="slot-Cooling-name">Cooling</strong>
+              <div id="slot-Cooling" class="slot-desc" style="color:var(--muted)">Optional</div>
+              <div id="slot-Cooling-desc" class="slot-desc"></div>
+            </div>
+          </div>
+          <div><button class="selection" onclick="jumpToCategory('Cooling')">Select</button></div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="panel right" aria-label="Parts selection">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h3 style="margin:0">Components</h3>
+        <div style="color:var(--muted)">Filter & Select</div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+        <input id="searchInput" class="search" placeholder="Search components..." style="flex:1;padding:10px;border-radius:8px;background:#0b0b0b;border:1px solid rgba(255,255,255,0.03);color:#ddd" />
+        <select id="categoryFilter" style="padding:8px;border-radius:8px;background:#0b0b0b;color:#ddd;border:1px solid rgba(255,255,255,0.03)">
+          <option value="all">All</option>
+        </select>
+      </div>
+
+      <div class="parts" id="partsList" tabindex="0" role="list" aria-label="Parts list"></div>
+    </aside>
+  </div>
+
+  <div class="bottom-bar" role="status">
+    <div id="subtotalText">Subtotal: ₱0.00</div>
+    <div style="display:flex;gap:12px;align-items:center">
+      <div style="color:var(--muted)">Shipping: Standard</div>
+      <button id="addToCartBtn" class="btn select">ADD TO CART</button>
+    </div>
+  </div>
+
+  <div id="debug" style="padding:12px;color:#999"></div>
+
+  <!-- include your product data script first -->
+  <script src="product.js"></script>
+
+  <!-- optional: categories.js if you keep product data there -->
+  <script src="categories.js"></script>
+
+  <!-- exposer that tries to set window.PRODUCTS from any found source (no modification needed) -->
+  <script src="expose-products.js"></script>
+
+  <!-- builder must load after product data or the exposer -->
+  <script src="buildpc.js"></script>
+</body>
+</html>
