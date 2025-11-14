@@ -22,33 +22,31 @@
   </style>
 </head>
 <body>
-  <!-- REPLACE the current empty header with this navbar (includes wishlist & cart) -->
-  <header class="site-nav" role="banner" style="background:#0b0b0b;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,0.02)">
-    <div class="nav-inner" style="max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:12px">
-      <div style="display:flex;align-items:center;gap:18px">
-        <button id="menuBtn" aria-label="Menu" class="nav-icon" style="background:transparent;border:0;color:inherit;cursor:pointer">☰</button>
-        <a class="logo" href="index.html" style="color:inherit;text-decoration:none;font-weight:700;font-size:1.05rem">⚡ TechForge PC</a>
-        <nav aria-label="Main navigation" style="display:flex;gap:12px;align-items:center;margin-left:8px">
-          <a class="nav-link" href="index.html">Home</a>
-          <a class="nav-link" href="products.html">Products</a>
-          <a class="nav-link" href="buildapc.html" style="font-weight:700">Build A PC</a>
-          <a class="nav-link" href="categories.html">Categories</a>
+  <header>
+        <nav>
+            <div class="logo" onclick="window.location.href='index.html'">⚡ TechForge PC</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="deals.html">Deals</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+
+            </ul>
+            <div class="search-cart">
+                <div class="search-box">
+                    <input type="text" placeholder="Search products..." id="searchInput">
+                </div>
+                <button class="wishlist-btn-header" onclick="showWishlist()">
+                     Wishlist (<span id="wishlistCount">0</span>)
+                </button>
+                <button class="cart-btn" onclick="showCart()">
+                     Cart (<span id="cartCount">0</span>)
+                </button>
+            </div>
         </nav>
-      </div>
-
-      <div style="display:flex;align-items:center;gap:12px">
-        <button id="wishlistBtn" class="nav-action" aria-label="Wishlist" title="Wishlist">
-          <span style="font-size:18px">♡</span>
-          <span id="wishlistCount" style="margin-left:6px;font-weight:700;color:var(--muted)">0</span>
-        </button>
-
-        <button id="cartBtn" class="nav-action" aria-label="Cart" title="Cart">
-          <span style="font-size:18px">🛒</span>
-          <span id="cartCount" style="margin-left:6px;font-weight:700;color:var(--muted)">0</span>
-        </button>
-      </div>
-    </div>
-  </header>
+    </header>
 
   <div class="container" role="application">
     <!-- LEFT: HOW TO BUILD A PC (replaces Build Overview) -->
