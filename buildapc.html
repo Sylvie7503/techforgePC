@@ -18,6 +18,19 @@
     .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#dfe6e8;padding:8px 10px;border-radius:8px;cursor:pointer}
     .btn.select{background:linear-gradient(90deg,var(--accent),#019b01);border:0;color:#071507}
     .bottom-bar{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;width:calc(100% - 80px);max-width:1400px;background:rgba(0,0,0,0.55);border-radius:12px;padding:12px 18px;display:flex;justify-content:space-between;align-items:center}
+  
+    #howToBuild { 
+      margin-left: 0; 
+      margin-right: 0; 
+      padding-left: 6px; 
+      padding-right: 6px; 
+      line-height: 1.45;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    #howToBuild ol li { margin-bottom: 14px; }
+    #howToBuild .howto-step { margin-top: 4px; margin-left: 4px; }
+    #howToBuild .selection { margin-top: 6px; }
   </style>
 
 </head>
@@ -52,13 +65,52 @@
     </nav>
   </header>
 
-  <!-- MAIN BUILDER -->
   <div class="container" role="application">
+    <!-- LEFT: HOW TO BUILD A PC (replaces Build Overview) -->
+    <aside class="panel left" aria-label="How to build a PC">
+      <h2 style="margin:0 0 12px 0">How to Build a PC</h2>
 
-    <!-- LEFT PANEL -->
-    <aside class="panel left">
-      <h2>How to Build a PC</h2>
-      <p style="color:#9aa0a6;font-size:14px">Select components on the right and they will appear in your build.</p>
+      <div id="howToBuild" style="line-height:1.45;color:var(--muted);font-size:14px">
+        <ol>
+          <li><strong>Choose a Processor (CPU)</strong>
+            <div class="howto-step">Pick a CPU first — it determines the socket and performance tier. Use "Select" on Processor to view available CPUs.</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('Processor')">Show Processors</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Choose a Motherboard</strong>
+            <div class="howto-step">Select a motherboard compatible with the CPU socket and features (RAM slots, M.2, USB ports).</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('Motherboard')">Show Motherboards</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Pick Memory (RAM)</strong>
+            <div class="howto-step">Choose RAM capacity and speed supported by the motherboard (eg. DDR4/DDR5).</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('Memory')">Show Memory</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Graphics Card (GPU)</strong>
+            <div class="howto-step">If you game or do GPU work, pick a GPU that fits your budget and case size.</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('GPU')">Show GPUs</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Storage</strong>
+            <div class="howto-step">Select an SSD or HDD depending on speed and capacity needs. NVMe SSDs are fastest.</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('Storage')">Show Storage</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Cooling & Power</strong>
+            <div class="howto-step">Pick cooling (air/liquid) and a PSU with enough wattage for your components.</div>
+            <div style="margin-top:6px"><button class="selection" onclick="jumpToCategory('Cooling')">Show Cooling</button></div>
+          </li>
+
+          <li style="margin-top:12px"><strong>Review & Add to Cart</strong>
+            <div class="howto-step">After selecting items, review the build on the right and click "ADD TO CART" to save or purchase.</div>
+          </li>
+        </ol>
+
+        <div style="margin-top:14px;color:var(--muted);font-size:13px">
+          Tip: Start with the CPU and motherboard to ensure socket compatibility.
+        </div>
+      </div>
     </aside>
 
     <!-- MIDDLE: SELECTED COMPONENTS -->

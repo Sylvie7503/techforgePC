@@ -3,7 +3,7 @@
 
   // --- UI refs ---
   const partsList = document.getElementById('partsList');
-  const searchInput = document.getElementById('searchInput');
+  const searchInput = document.getElementById('builderSearch');
   const categoryFilter = document.getElementById('categoryFilter');
   const subtotalText = document.getElementById('subtotalText');
   const buildCategoryText = document.getElementById('buildCategoryText');
