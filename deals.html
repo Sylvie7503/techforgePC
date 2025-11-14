@@ -283,23 +283,29 @@
 
         // ✅ Add Deal to Wishlist
         function addToWishlist(dealId) {
-            const deal = deals.find(d => d.id === dealId);
-            if (!deal) {
-                showNotification('Deal not found!');
-                return;
-            }
+    const deal = deals.find(d => d.id === dealId);
+    if (!deal) {
+        showNotification('Deal not found!');
+        return;
+    }
 
-            if (wishlist.some(item => item.id === deal.id)) {
-                showNotification(`${deal.name} is already in your wishlist!`);
-                return;
-            }
+    if (wishlist.some(item => item.id === deal.id)) {
+        showNotification(`${deal.name} is already in your wishlist!`);
+        return;
+    }
 
-            wishlist.push(deal);
-            saveWishlist();
-            updateWishlistCount();
-            showNotification(`${deal.name} added to wishlist!`);
-            renderWishlist();
-        }
+    // Push deal with a "price" property
+    wishlist.push({
+        ...deal,
+        price: deal.newPrice
+    });
+
+    saveWishlist();
+    updateWishlistCount();
+    showNotification(`${deal.name} added to wishlist!`);
+    renderWishlist();
+}
+
 
         // ✅ Remove Deal from Wishlist
         function removeFromWishlist(id) {

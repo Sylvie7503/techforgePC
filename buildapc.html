@@ -178,19 +178,6 @@
           </div>
           <button class="selection" onclick="jumpToCategory('Storage')">Select</button>
         </div>
-
-        <div class="builder-slot" data-slot="Cooling">
-          <div class="slot-left">
-            <img id="slot-Cooling-img" class="slot-thumb" src="" hidden>
-            <div class="slot-meta">
-              <strong id="slot-Cooling-name">Cooling</strong>
-              <div id="slot-Cooling" style="color:var(--muted)">Optional</div>
-              <div id="slot-Cooling-desc"></div>
-            </div>
-          </div>
-          <button class="selection" onclick="jumpToCategory('Cooling')">Select</button>
-        </div>
-
       </div>
     </main>
 
@@ -224,6 +211,19 @@
         <button class="close-btn" onclick="closeCart()">×</button>
       </div>
       <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+    <!-- 🔥 Wishlist Modal -->
+  <div class="modal" id="wishlistModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Wishlist</h2>
+        <button class="close-btn" onclick="closeWishlist()">×</button>
+      </div>
+      <div class="modal-body" id="wishlistBody">
+        <!-- Wishlist items will be dynamically rendered here -->
+      </div>
     </div>
   </div>
 
