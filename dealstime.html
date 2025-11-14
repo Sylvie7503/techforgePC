@@ -14,7 +14,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
                 <li><a href="categories.html">Categories</a></li>
-                <li><a href="deals.html">Deals</a></li>
+                <li><a href="dealstime.html">Deals</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li><a href="login.html">Login</a></li>
 
@@ -281,7 +281,7 @@
         }
 
         // ✅ Add Deal to Wishlist
-        function addToWishlist(dealId) {
+                function addToWishlist(dealId) {
             const deal = deals.find(d => d.id === dealId);
             if (!deal) {
                 showNotification('Deal not found!');
@@ -293,12 +293,18 @@
                 return;
             }
 
-            wishlist.push(deal);
+            // Push deal with a "price" property
+            wishlist.push({
+                ...deal,
+                price: deal.newPrice
+            });
+
             saveWishlist();
             updateWishlistCount();
             showNotification(`${deal.name} added to wishlist!`);
             renderWishlist();
         }
+
 
         // ✅ Remove Deal from Wishlist
         function removeFromWishlist(id) {
