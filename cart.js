@@ -47,6 +47,13 @@ function updateCartCount() {
     });
 }
 
+// ❗ REMOVED the duplicate slots overwrite here  
+// (This was the bug breaking Build A PC)
+// ---------------------------------------------------------
+// const slots = { Processor:null, Motherboard:null, Memory:null, GPU:null, Storage:null, Cooling:null, PSU:null };
+// window.slots = slots;
+// ---------------------------------------------------------
+
 // Add item to cart
 function addToCart(item) {
     console.log('Adding to cart:', item);
@@ -128,12 +135,10 @@ function renderCartModal() {
         return;
     }
 
-    // Totals before discount
     const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
     const tax = subtotal * TAX_RATE;
     const shipping = subtotal > 50 ? 0 : 9.99;
 
-    // Apply discount if voucher is valid
     const discountedSubtotal = applyDiscount(subtotal);
     const discountedTax = applyDiscount(tax);
     const discountedTotal = discountedSubtotal + discountedTax + shipping;
@@ -164,7 +169,6 @@ function renderCartModal() {
             `).join('')}
         </div>
 
-        <!-- ✅ Voucher Input -->
         <div class="voucher-section" style="margin:15px 0;padding:10px;background:#222;border-radius:6px;">
             <label style="color:#fff;">Voucher Code (PWD/Senior Discount)</label>
             <div style="display:flex;gap:8px;margin-top:6px;">
@@ -188,11 +192,9 @@ function renderCartModal() {
                 <span style="color:#00ff99;">₱${formatPrice(discountedSubtotal)}</span>
             </div>` : ''}
 
-            <div class="cart-total-row">
+            <div class="cart-total-row" style="display:none;">
                 <span>Tax (12%):</span>
-                <span style="${isDiscountApplied ? 'text-decoration:line-through;color:#aaa;' : ''}">
-                    ₱${formatPrice(tax)}
-                </span>
+                <span>₱${formatPrice(tax)}</span>
             </div>
 
             ${isDiscountApplied ? `
@@ -268,7 +270,7 @@ function renderCartModal() {
     `;
 }
 
-// ✅ NEW: Voucher code validation
+// Voucher
 function applyVoucher() {
     const input = document.getElementById('voucherCode');
     if (!input) return;
@@ -286,7 +288,7 @@ function applyVoucher() {
     renderCartModal();
 }
 
-// Process checkout with validation
+// Checkout validation
 function processCheckout(total) {
     const requiredFields = ['fullName','email','phone','address','city','zip','cardName','cardNumber','expiryDate','cvv'];
     for (const id of requiredFields) {
@@ -305,7 +307,7 @@ function processCheckout(total) {
     closeCart();
 }
 
-// Show notification
+// Notification
 function showNotification(message) {
     document.querySelectorAll('.notification').forEach(n => n.remove());
     
@@ -317,7 +319,7 @@ function showNotification(message) {
     setTimeout(() => notif.remove(), 3000);
 }
 
-// Initialize when page loads
+// Initialize
 document.addEventListener('DOMContentLoaded', function() {
     loadCart();
     
@@ -329,7 +331,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Make functions globally available
+// Global functions
 window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.updateCartItemQuantity = updateCartItemQuantity;

@@ -17,7 +17,7 @@
   // --- state ---
   let G_CATALOG = []; // global catalog accessible to jumpToCategory/select handlers
   const slots = { Processor:null, Motherboard:null, Memory:null, GPU:null, Storage:null, Cooling:null, PSU:null };
-
+  window.slots = slots;
   // Helpers
   function money(v){ return '₱' + Number(v||0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
   function mapCategory(src){
@@ -142,6 +142,8 @@
     }
     updateSlotsUI();
   }
+  
+    
 
   // build overview
   function updateBuildOverview(total){
@@ -201,5 +203,6 @@
     renderParts(G_CATALOG);
     updateSlotsUI();
   })();
+  
 
 })();
