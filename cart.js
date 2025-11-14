@@ -182,18 +182,8 @@ function renderCartModal() {
                 </span>
             </div>
 
-            ${isDiscountApplied ? `
-            <div class="cart-total-row">
-                <span>Discounted Subtotal:</span>
-                <span style="color:#00ff99;">₱${formatPrice(discountedSubtotal)}</span>
-            </div>` : ''}
+            <!-- Tax is still calculated, but hidden from UI -->
 
-            <div class="cart-total-row">
-                <span>Tax (12%):</span>
-                <span style="${isDiscountApplied ? 'text-decoration:line-through;color:#aaa;' : ''}">
-                    ₱${formatPrice(tax)}
-                </span>
-            </div>
 
             ${isDiscountApplied ? `
             <div class="cart-total-row">
